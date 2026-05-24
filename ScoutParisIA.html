@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#1d4ed8">
 <title>Scout Paris IA</title>
-<link rel="manifest" id="mf">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -17,43 +16,38 @@
   --pu:#7c3aed;
   --grll:#f3f4f6;--bd:#e5e7eb;
   --tx:#111827;--tx2:#6b7280;--tx3:#9ca3af;
-  --bg:#f1f5f9;--r:14px;--rs:10px;
+  --bg:#f1f5f9;--r:14px;
   --sh:0 1px 3px rgba(0,0,0,.07),0 4px 12px rgba(0,0,0,.05);
   --sh2:0 8px 32px rgba(0,0,0,.12);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;-webkit-font-smoothing:antialiased}
-
-/* TOPBAR */
 .topbar{background:#fff;border-bottom:1px solid var(--bd);padding:0 14px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .tl{display:flex;align-items:center;gap:9px}
 .tl-logo{font-size:22px}
 .tl-name{font-family:'DM Serif Display',serif;font-size:17px}
 .tl-sub{font-size:9px;color:var(--tx3);margin-top:-1px}
 .top-actions{display:flex;align-items:center;gap:8px}
-.btn-sm{padding:6px 11px;border-radius:20px;border:none;font-size:11px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap}
-.btn-primary{background:var(--bl);color:#fff}
-.btn-primary:disabled{background:var(--bd);color:var(--tx3);cursor:default}
-.btn-ghost{background:var(--grll);color:var(--tx2);border:1px solid var(--bd)}
-.live-dot{width:8px;height:8px;border-radius:50%;background:var(--gn);animation:pulse 2s infinite;flex-shrink:0}
+.btn-sm{padding:6px 12px;border-radius:20px;border:none;font-size:11px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif}
+.btn-bl{background:var(--bl);color:#fff}
+.btn-bl:disabled{background:var(--bd);color:var(--tx3);cursor:default}
+.btn-gr{background:var(--grll);color:var(--tx2);border:1px solid var(--bd)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gn);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-
 .main{max-width:640px;margin:0 auto;padding:14px 12px 60px}
 
-/* SETUP SCREEN */
-.setup{max-width:460px;margin:60px auto 0;padding:0 16px}
-.setup-card{background:#fff;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh);padding:28px 24px}
-.setup-icon{font-size:48px;text-align:center;margin-bottom:14px}
-.setup-title{font-family:'DM Serif Display',serif;font-size:22px;text-align:center;margin-bottom:8px}
-.setup-sub{font-size:13px;color:var(--tx2);text-align:center;line-height:1.6;margin-bottom:20px}
-.setup-label{display:block;font-size:11px;font-weight:700;color:var(--tx2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
-.setup-input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--bd);font-size:14px;font-family:'Outfit',sans-serif;outline:none;background:#fff;color:var(--tx);transition:border-color .2s;margin-bottom:14px}
+/* SETUP */
+.setup{max-width:440px;margin:60px auto;padding:0 16px}
+.setup-card{background:#fff;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh);padding:28px 24px;text-align:center}
+.setup-icon{font-size:48px;margin-bottom:12px}
+.setup-title{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:8px}
+.setup-sub{font-size:12px;color:var(--tx2);line-height:1.6;margin-bottom:20px}
+.setup-input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--bd);font-size:13px;font-family:'Outfit',sans-serif;outline:none;margin-bottom:12px;text-align:left}
 .setup-input:focus{border-color:var(--bl)}
-.setup-btn{display:block;width:100%;padding:14px;border-radius:11px;border:none;background:var(--bl);color:#fff;font-size:15px;font-weight:800;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s;margin-bottom:12px}
-.setup-btn:hover{opacity:.88}
-.setup-note{font-size:10px;color:var(--tx3);text-align:center;line-height:1.6}
+.setup-btn{display:block;width:100%;padding:13px;border-radius:11px;border:none;background:var(--bl);color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:'Outfit',sans-serif;margin-bottom:10px}
+.setup-err{background:var(--rdl);border:1px solid var(--rd);color:var(--rd);border-radius:9px;padding:9px 12px;font-size:11px;margin-bottom:10px;display:none;text-align:left}
+.setup-note{font-size:10px;color:var(--tx3);line-height:1.6}
 .setup-note a{color:var(--bl)}
-.setup-error{background:var(--rdl);border:1px solid var(--rd);color:var(--rd);border-radius:9px;padding:10px 13px;font-size:12px;margin-bottom:12px;display:none}
 
 /* TABS */
 .tabs{display:flex;background:#fff;border-radius:var(--r);border:1px solid var(--bd);overflow:hidden;margin-bottom:14px;box-shadow:var(--sh)}
@@ -67,8 +61,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .fc{padding:5px 11px;border-radius:20px;border:1.5px solid var(--bd);background:#fff;font-size:10px;font-weight:700;color:var(--tx2);cursor:pointer;white-space:nowrap;font-family:'Outfit',sans-serif;flex-shrink:0}
 .fc.on{background:var(--bl);color:#fff;border-color:var(--bl)}
 
-/* STATUS BAR */
-.sbar{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:var(--rs);border:1px solid var(--bd);padding:10px 13px;margin-bottom:12px;box-shadow:var(--sh)}
+/* STATUS */
+.sbar{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:10px;border:1px solid var(--bd);padding:10px 13px;margin-bottom:12px;box-shadow:var(--sh)}
 .sbar-l{display:flex;align-items:center;gap:8px}
 .sbar-txt{font-size:11px;font-weight:600}
 .sbar-date{font-size:10px;color:var(--tx3);margin-top:1px}
@@ -77,7 +71,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 /* TOP 5 */
 .t5{background:linear-gradient(135deg,#f59e0b,#fbbf24);border-radius:var(--r);padding:14px 16px;margin-bottom:14px;box-shadow:0 4px 12px rgba(245,158,11,.3)}
 .t5-title{font-size:13px;font-weight:800;color:#78350f;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
-.t5-date{font-size:10px;font-weight:600;opacity:.8}
 .t5-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.78);border-radius:10px;padding:9px 12px;margin-bottom:6px;cursor:pointer;transition:background .15s}
 .t5-item:hover{background:rgba(255,255,255,.95)}
 .t5-item:last-child{margin-bottom:0}
@@ -86,7 +79,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .t5-lg{font-size:9px;color:#92400e;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
 .t5-match{font-size:13px;font-weight:800;color:#1c1917;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .t5-why{font-size:10px;color:#78350f;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.t5-odds-line{font-size:9px;margin-top:3px;color:#92400e;font-weight:700}
+.t5-odds{font-size:9px;margin-top:3px;color:#92400e;font-weight:700}
 .t5-right{text-align:right;flex-shrink:0}
 .t5-pts{font-size:20px;font-weight:900;color:#92400e;line-height:1}
 .t5-niv{font-size:9px;font-weight:700;color:#78350f}
@@ -114,7 +107,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .d{width:16px;height:16px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#fff}
 .d.V{background:var(--gn)}.d.D{background:var(--rd)}.d.N{background:var(--or)}
 .vs{font-size:10px;color:var(--bd);font-weight:800;padding-top:12px}
-.odds-src{font-size:9px;color:var(--tx3);margin-bottom:5px;display:flex;align-items:center;gap:4px}
+.odds-src{font-size:9px;color:var(--tx3);margin-bottom:5px}
 .odds-row{display:flex;gap:5px;margin-bottom:7px;flex-wrap:wrap}
 .ob{flex:1;min-width:50px;background:var(--grll);border-radius:8px;padding:6px 4px;text-align:center;border:1.5px solid var(--bd)}
 .ob.best{background:var(--gnl);border-color:var(--gn)}
@@ -129,13 +122,12 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 /* CALENDAR */
 .cal-nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px;scrollbar-width:none}
 .cal-nav::-webkit-scrollbar{display:none}
-.cal-btn{padding:7px 10px;border-radius:12px;border:1.5px solid var(--bd);background:#fff;cursor:pointer;white-space:nowrap;font-family:'Outfit',sans-serif;flex-shrink:0;text-align:center;min-width:58px;transition:all .15s}
-.cal-btn .day-num{display:block;font-size:18px;font-weight:900;line-height:1.1}
-.cal-btn .day-name{font-size:9px;color:var(--tx3)}
-.cal-btn .mc-count{font-size:9px;margin-top:2px;background:var(--grll);border-radius:10px;padding:1px 5px;display:inline-block}
+.cal-btn{padding:7px 10px;border-radius:12px;border:1.5px solid var(--bd);background:#fff;cursor:pointer;font-family:'Outfit',sans-serif;flex-shrink:0;text-align:center;min-width:58px}
+.cal-btn .dn{display:block;font-size:18px;font-weight:900;line-height:1.1}
+.cal-btn .dm{font-size:9px;color:var(--tx3)}
+.cal-btn .dc{font-size:9px;margin-top:2px;background:var(--grll);border-radius:10px;padding:1px 5px;display:inline-block}
 .cal-btn.on{background:var(--bl);color:#fff;border-color:var(--bl)}
-.cal-btn.on .day-name{color:rgba(255,255,255,.75)}
-.cal-btn.on .mc-count{background:rgba(255,255,255,.25)}
+.cal-btn.on .dm,.cal-btn.on .dc{color:rgba(255,255,255,.75)}
 .cal-section{background:#fff;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh);overflow:hidden}
 .cal-hdr{background:var(--bll2);border-bottom:1px solid var(--bd);padding:9px 14px;display:flex;justify-content:space-between;align-items:center}
 .cal-hdr-t{font-size:12px;font-weight:800;color:var(--bl)}
@@ -154,7 +146,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .cal-empty{text-align:center;padding:28px 16px;color:var(--tx3);font-size:12px}
 .cal-load-btn{margin-top:10px;padding:8px 16px;background:var(--bl);color:#fff;border:none;border-radius:9px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;font-size:12px}
 
-/* SECTION HDR */
+/* SH */
 .sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .sh-title{font-family:'DM Serif Display',serif;font-size:17px}
 .sh-meta{font-size:10px;color:var(--tx3)}
@@ -176,7 +168,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .chip{padding:5px 12px;background:rgba(255,255,255,.2);border-radius:20px;font-size:10px;font-weight:700}
 .ctx-box{background:var(--bll2);border-radius:10px;padding:10px 13px;margin-bottom:12px;font-size:11px;color:var(--bl);font-weight:600;line-height:1.5}
 .oc{background:#fff;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh);padding:14px;margin-bottom:10px}
-.oc-title{font-size:11px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.oc-title{font-size:11px;font-weight:800;margin-bottom:10px}
 .oc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:8px}
 .oc-col{background:var(--grll);border-radius:9px;padding:9px;text-align:center}
 .oc-col.best{background:var(--gnl);border:1px solid var(--gn)}
@@ -215,8 +207,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .fi,.fs{width:100%;padding:10px 12px;border-radius:9px;border:1.5px solid var(--bd);background:#fff;color:var(--tx);font-size:12px;font-family:'Outfit',sans-serif;outline:none;-webkit-appearance:none}
 .fi:focus,.fs:focus{border-color:var(--bl)}
 .fg{margin-bottom:11px}
-
-/* LOADING */
 .ld{text-align:center;padding:60px 16px}
 .ball{font-size:52px;animation:spin 1.1s linear infinite;display:block;margin-bottom:14px}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
@@ -225,8 +215,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .prog-f{height:100%;background:linear-gradient(90deg,var(--bl),#7dd3fc);border-radius:10px;animation:prg 1.3s ease-in-out infinite alternate}
 @keyframes prg{from{width:8%}to{width:95%}}
 .ld-sub{font-size:10px;color:var(--tx3)}
-
 .disc{text-align:center;font-size:9px;color:var(--tx3);padding:6px 0;opacity:.7;line-height:1.5}
+.err-box{background:var(--rdl);border:1px solid var(--rd);color:var(--rd);border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:12px;line-height:1.5}
 
 /* COLORS */
 .nE{background:var(--gnl);color:var(--gn)}.nB{background:#d1fae5;color:#065f46}
@@ -235,193 +225,149 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .bM{background:linear-gradient(90deg,var(--yw),#fbbf24)}.bR{background:linear-gradient(90deg,var(--or),#fb923c)}.bV{background:linear-gradient(90deg,var(--rd),#f87171)}
 .hE{background:linear-gradient(135deg,#059669,#10b981)}.hB{background:linear-gradient(135deg,#16a34a,#22c55e)}
 .hM{background:linear-gradient(135deg,#ca8a04,#eab308)}.hR{background:linear-gradient(135deg,#ea580c,#f97316)}.hV{background:linear-gradient(135deg,#dc2626,#ef4444)}.hX{background:linear-gradient(135deg,#6b7280,#9ca3af)}
-
-@media(max-width:480px){.pc,.tc-grid{grid-template-columns:1fr}.oc-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.pc,.tc-grid,.oc-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <div class="topbar">
   <div class="tl">
     <span class="tl-logo">⚽</span>
     <div>
       <div class="tl-name">Scout Paris IA</div>
-      <div class="tl-sub" id="tl-sub">Paris sportifs · IA · Monde entier</div>
+      <div class="tl-sub" id="tl-sub">Paris sportifs · Monde entier</div>
     </div>
   </div>
   <div class="top-actions">
-    <div class="live-dot" id="live-dot" style="display:none"></div>
-    <button class="btn-sm btn-ghost" id="btn-key" onclick="showKeySetup()" style="display:none">🔑</button>
-    <button class="btn-sm btn-primary" id="btn-rf" onclick="refresh()" disabled>↻</button>
+    <div class="dot" id="live-dot" style="display:none"></div>
+    <button class="btn-sm btn-gr" id="btn-key" onclick="showSetup()" style="display:none">🔑 Clé</button>
+    <button class="btn-sm btn-bl" id="btn-rf" onclick="refresh()" disabled>↻</button>
   </div>
 </div>
-
 <div id="app"></div>
 
 <script>
-// ═══════════════════════════════════════════
-//  CONFIG & STATE
-// ═══════════════════════════════════════════
-const CACHE_TTL  = 6*60*60*1000; // 6h
-const BTS=['Victoire équipe A (1)','Match nul (X)','Victoire équipe B (2)','Plus de 2.5 buts','Moins de 2.5 buts','BTTS Oui','BTTS Non','Double chance 1X','Double chance X2','Double chance 12','Handicap -1 équipe A'];
-const MEDALS=['🥇','🥈','🥉','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟'];
-const NC={EXCELLENT:'#16a34a',BON:'#059669',MOYEN:'#ca8a04',RISQUÉ:'#ea580c','ÉVITER':'#dc2626',ERREUR:'#6b7280'};
-const ML_TODAY=['🌐 Scraping des sources live...','📡 Récupération des matchs du jour...','💰 Cotes bookmakers en temps réel...','📊 Analyse des classements...','🏆 Construction du Top 5...','🧠 Classement par potentiel IA...'];
-const ML_CAL=['📅 Recherche des matchs...','🌍 Sources internationales...','💰 Cotes disponibles...'];
-const ML_ANZ=['🔍 Analyse approfondie...','📊 Formes & stats...','💰 Analyse des cotes...','⚽ H2H historique...','🧠 Rédaction rapport IA...'];
+// ══ CONFIG ════════════════════════════
+const CACHE_TTL = 6*60*60*1000;
+const MEDALS = ['🥇','🥈','🥉','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟'];
+const NC = {EXCELLENT:'#16a34a',BON:'#059669',MOYEN:'#ca8a04',RISQUÉ:'#ea580c','ÉVITER':'#dc2626',ERREUR:'#6b7280'};
+const BTS = ['Victoire A (1)','Match nul (X)','Victoire B (2)','+2.5 buts','-2.5 buts','BTTS Oui','BTTS Non','1X','X2','12','Handicap -1A'];
+const ML = ['🌐 Connexion live...','📡 Récupération des matchs...','💰 Cotes bookmakers...','🧠 Classement IA...'];
 
-const S={
-  screen:'setup',   // setup | loading | main | detail | analyzing | result
-  tab:'top5',
-  calDay:0,
+// ══ STATE ═════════════════════════════
+const S = {
+  screen:'setup', tab:'top5', calDay:0,
   apiKey:'',
-  matches:[],top5:[],
+  matches:[], top5:[],
   calData:{},
-  sel:null,analysis:null,
-  betType:'',odds:'',
-  filter:'Tous',
-  lastUpdate:null,
+  sel:null, analysis:null,
+  betType:'', odds:'',
+  filter:'Tous', lastUpdate:null,
 };
 
-// ═══════════════════════════════════════════
-//  HELPERS
-// ═══════════════════════════════════════════
+// ══ HELPERS ═══════════════════════════
 function nC(n){return{EXCELLENT:'E',BON:'B',MOYEN:'M',RISQUÉ:'R','ÉVITER':'V',ERREUR:'X'}[n]||'M';}
 function bC(n){return'b'+nC(n);}
 function hC(n){return'h'+nC(n);}
 function ic(t,c,tx){return`<div class="card"><div class="card-t" style="color:${c}">${t}</div><div class="card-tx">${tx}</div></div>`;}
-
-function todayISO(){
-  const d=new Date();
-  return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-}
+function todayISO(){const d=new Date();return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
 function get7Days(){
-  const days=[],days_fr=['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
-  const months_fr=['jan','fév','mar','avr','mai','juin','juil','août','sep','oct','nov','déc'];
-  for(let i=0;i<7;i++){
-    const d=new Date(); d.setDate(d.getDate()+i);
-    const iso=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-    days.push({iso,num:String(d.getDate()),name:days_fr[d.getDay()],month:months_fr[d.getMonth()],isToday:i===0});
-  }
-  return days;
+  const R=[],DN=['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],MN=['jan','fév','mar','avr','mai','juin','juil','août','sep','oct','nov','déc'];
+  for(let i=0;i<7;i++){const d=new Date();d.setDate(d.getDate()+i);const iso=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;R.push({iso,num:String(d.getDate()),name:DN[d.getDay()],month:MN[d.getMonth()],isToday:i===0});}
+  return R;
 }
 function saveCache(k,v){try{localStorage.setItem(k,JSON.stringify({ts:Date.now(),v}));}catch(e){}}
 function loadCache(k){try{const c=JSON.parse(localStorage.getItem(k));if(c&&Date.now()-c.ts<CACHE_TTL)return c.v;}catch(e){}return null;}
 
-// API Anthropic — header CORS obligatoire
-async function callClaude(messages, tools=null){
-  const body={model:'claude-sonnet-4-20250514',max_tokens:1000,messages};
-  if(tools)body.tools=tools;
-  const headers={
-    'Content-Type':'application/json',
-    'x-api-key':S.apiKey,
-    'anthropic-version':'2023-06-01',
-    'anthropic-dangerous-direct-browser-access':'true',
+async function callClaude(prompt, useSearch=false){
+  const body={
+    model:'claude-sonnet-4-20250514',
+    max_tokens:800,
+    messages:[{role:'user',content:prompt}]
   };
-  const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers,body:JSON.stringify(body)});
-  if(!res.ok){
-    const err=await res.json().catch(()=>({}));
-    throw new Error(err.error?.message||`HTTP ${res.status}`);
-  }
+  if(useSearch) body.tools=[{type:'web_search_20250305',name:'web_search',max_uses:3}];
+  const res = await fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'x-api-key':S.apiKey,
+      'anthropic-version':'2023-06-01',
+      'anthropic-dangerous-direct-browser-access':'true',
+    },
+    body:JSON.stringify(body)
+  });
+  if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||`HTTP ${res.status}`);}
   const data=await res.json();
   return (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
 }
-function parseJSON(text){
-  const s=text.indexOf('{'),e=text.lastIndexOf('}');
-  if(s<0||e<0)throw new Error('Pas de JSON dans la réponse');
-  return JSON.parse(text.slice(s,e+1));
-}
-function parseJSONArray(text){
-  const s=text.indexOf('['),e=text.lastIndexOf(']');
-  if(s<0||e<0)return parseJSON(text);
-  return JSON.parse(text.slice(s,e+1));
+function parseJ(text){
+  // Essaie d'abord un array, puis un objet
+  let s=text.indexOf('['),e=text.lastIndexOf(']');
+  if(s>=0&&e>s){try{return JSON.parse(text.slice(s,e+1));}catch(err){}}
+  s=text.indexOf('{');e=text.lastIndexOf('}');
+  if(s>=0&&e>s){try{return JSON.parse(text.slice(s,e+1));}catch(err){}}
+  throw new Error('JSON invalide');
 }
 
-// ═══════════════════════════════════════════
-//  RENDER
-// ═══════════════════════════════════════════
+// ══ RENDER ════════════════════════════
 let liv=null;
 function render(){
   const app=document.getElementById('app');
-  const rf=document.getElementById('btn-rf');
-  rf.disabled=['loading','analyzing'].includes(S.screen)||S.screen==='setup';
+  document.getElementById('btn-rf').disabled=['loading','analyzing'].includes(S.screen)||S.screen==='setup';
   document.getElementById('live-dot').style.display=S.lastUpdate?'block':'none';
   document.getElementById('btn-key').style.display=S.screen==='setup'?'none':'block';
-
   switch(S.screen){
     case 'setup':    app.innerHTML=renderSetup();break;
-    case 'loading':  app.innerHTML=renderLoad(ML_TODAY,'Chargement des matchs du jour...');startLiv(ML_TODAY);break;
+    case 'loading':  app.innerHTML=renderLoad('Chargement des matchs...');startLiv();break;
     case 'main':     app.innerHTML=renderMain();break;
     case 'detail':   app.innerHTML=renderDetail();break;
-    case 'analyzing':app.innerHTML=renderLoad(ML_ANZ,S.sel?`${S.sel.home} vs ${S.sel.away}`:'');startLiv(ML_ANZ);break;
+    case 'analyzing':app.innerHTML=renderLoad(S.sel?`${S.sel.home} vs ${S.sel.away}`:'Analyse en cours...');startLiv();break;
     case 'result':   app.innerHTML=renderResult();break;
   }
 }
-function startLiv(msgs){
+function startLiv(){
   clearInterval(liv);let i=0;
-  setTimeout(()=>{liv=setInterval(()=>{i=(i+1)%msgs.length;const el=document.getElementById('ld-msg');if(el)el.textContent=msgs[i];},900);},80);
+  setTimeout(()=>{liv=setInterval(()=>{i=(i+1)%ML.length;const el=document.getElementById('ld-msg');if(el)el.textContent=ML[i];},900);},80);
 }
 
-// ═══════════════════════════════════════════
-//  SETUP — Saisie de la clé API
-// ═══════════════════════════════════════════
+// ══ SETUP ═════════════════════════════
 function renderSetup(){
-  return`
-  <div class="setup">
+  return`<div class="setup">
     <div class="setup-card">
       <div class="setup-icon">⚽</div>
       <div class="setup-title">Scout Paris IA</div>
-      <div class="setup-sub">Tous les matchs du monde · Cotes live · Mise à jour automatique quotidienne</div>
-      <div class="setup-error" id="setup-error"></div>
-      <label class="setup-label">🔑 Votre clé API Anthropic</label>
-      <input class="setup-input" id="api-key-input" type="password" placeholder="sk-ant-api03-..." autocomplete="off">
-      <button class="setup-btn" onclick="validateKey()">🚀 Démarrer</button>
-      <div class="setup-note">
-        Votre clé API est stockée uniquement dans votre navigateur.<br>
-        Obtenez-en une gratuitement sur <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a><br><br>
-        <strong>Pour mettre en ligne :</strong> hébergez ce fichier sur GitHub Pages ou Netlify et partagez le lien.
-      </div>
+      <div class="setup-sub">Tous les matchs du monde · Cotes live · Mise à jour automatique</div>
+      <div class="setup-err" id="setup-err"></div>
+      <label class="fl" style="text-align:left;display:block;margin-bottom:6px">🔑 Clé API Anthropic</label>
+      <input class="setup-input" id="api-in" type="password" placeholder="sk-ant-api03-...">
+      <button class="setup-btn" onclick="startApp()">🚀 Démarrer</button>
+      <div class="setup-note">Clé stockée uniquement dans votre navigateur.<br>
+      Créez-en une sur <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></div>
     </div>
   </div>`;
 }
-function showKeySetup(){
-  S.screen='setup';render();
-  setTimeout(()=>{const el=document.getElementById('api-key-input');if(el){el.value=S.apiKey||'';el.focus();}},100);
-}
-async function validateKey(){
-  const input=document.getElementById('api-key-input');
-  const key=(input?.value||'').trim();
-  const errEl=document.getElementById('setup-error');
-  if(!key||!key.startsWith('sk-ant')){
-    errEl.textContent='Clé invalide. Elle doit commencer par "sk-ant-..."';
-    errEl.style.display='block';return;
-  }
-  errEl.style.display='none';
-  input.disabled=true;
+function showSetup(){S.screen='setup';render();setTimeout(()=>{const el=document.getElementById('api-in');if(el){el.value=S.apiKey||'';el.focus();}},50);}
+async function startApp(){
+  const key=(document.getElementById('api-in')?.value||'').trim();
+  const err=document.getElementById('setup-err');
+  if(!key.startsWith('sk-ant')){err.textContent='Clé invalide. Elle doit commencer par sk-ant-...';err.style.display='block';return;}
+  err.style.display='none';
   S.apiKey=key;
-  localStorage.setItem('scout_api_key',key);
+  localStorage.setItem('scout_key',key);
   await fetchToday();
 }
 
-// ═══════════════════════════════════════════
-//  LOADING SCREEN
-// ═══════════════════════════════════════════
-function renderLoad(msgs,sub){
-  return`<div class="ld"><span class="ball">⚽</span><div class="ld-txt" id="ld-msg">${msgs[0]}</div><div class="prog"><div class="prog-f"></div></div><div class="ld-sub">${sub||''}</div></div>`;
+// ══ LOADING ═══════════════════════════
+function renderLoad(sub){
+  return`<div class="ld"><span class="ball">⚽</span><div class="ld-txt" id="ld-msg">${ML[0]}</div><div class="prog"><div class="prog-f"></div></div><div class="ld-sub">${sub}</div></div>`;
 }
 
-// ═══════════════════════════════════════════
-//  MAIN
-// ═══════════════════════════════════════════
+// ══ MAIN ══════════════════════════════
 function renderMain(){
   const now=new Date();
-  const dateStr=now.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
-  return`
-  <div class="main">
+  return`<div class="main">
     <div class="sbar">
-      <div class="sbar-l">
-        <div class="live-dot"></div>
-        <div><div class="sbar-txt">✅ Données à jour</div><div class="sbar-date">${S.lastUpdate||dateStr}</div></div>
+      <div class="sbar-l"><div class="dot"></div>
+        <div><div class="sbar-txt">✅ Données à jour</div><div class="sbar-date">${S.lastUpdate||''}</div></div>
       </div>
       <div class="sbar-r"><div style="font-weight:800;font-size:12px;color:var(--bl)">${S.matches.length} matchs</div><div>aujourd'hui</div></div>
     </div>
@@ -435,55 +381,49 @@ function renderMain(){
 }
 function setTab(t){S.tab=t;render();}
 
-// ═══════════════════════════════════════════
-//  TOP 5
-// ═══════════════════════════════════════════
+// ══ TOP 5 ═════════════════════════════
 function renderTop5(){
   const top=S.top5.length?S.top5:S.matches.slice(0,5);
-  const dateStr=new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long'});
+  const ds=new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long'});
   return`
   <div class="t5">
-    <div class="t5-title">🏆 Top 5 meilleurs paris <span class="t5-date">${dateStr}</span></div>
+    <div class="t5-title">🏆 Top 5 meilleurs paris <span style="font-size:10px;font-weight:600;opacity:.8">${ds}</span></div>
     ${top.map((m,i)=>{const od=m.odds||{};return`
-      <div class="t5-item" onclick="selectMatch(${m.id})">
-        <span class="t5-medal">${MEDALS[i]||'•'}</span>
-        <div class="t5-info">
-          <div class="t5-lg">${m.flag||''} ${m.league||''} · ${m.time||''}</div>
-          <div class="t5-match">${m.home} vs ${m.away}</div>
-          <div class="t5-why">${m.resume_match||m.ctx||''}</div>
-          ${m.pari_recommande?`<div class="t5-odds-line">💡 ${m.pari_recommande}${od.home!=null?' · 1:'+od.home+' X:'+od.draw+' 2:'+od.away:''}</div>`:''}
-        </div>
-        <div class="t5-right"><div class="t5-pts">${m.score_potentiel||'?'}</div><div class="t5-niv">${m.niveau||''}</div></div>
-      </div>`;}).join('')}
+    <div class="t5-item" onclick="selectMatch(${m.id})">
+      <span class="t5-medal">${MEDALS[i]||'•'}</span>
+      <div class="t5-info">
+        <div class="t5-lg">${m.flag||''} ${m.league||''} · ${m.time||''}</div>
+        <div class="t5-match">${m.home} vs ${m.away}</div>
+        <div class="t5-why">${m.resume||m.ctx||''}</div>
+        ${m.pari?`<div class="t5-odds">💡 ${m.pari}${od.h!=null?' · 1:'+od.h+' X:'+od.x+' 2:'+od.a:''}</div>`:''}
+      </div>
+      <div class="t5-right"><div class="t5-pts">${m.score||'?'}</div><div class="t5-niv">${m.niveau||''}</div></div>
+    </div>`;}).join('')}
   </div>
-  <div class="sh"><div class="sh-title">Analyse complète</div></div>
+  <div class="sh"><div class="sh-title">Analyse des Top 5</div></div>
   ${top.map((m,i)=>mcCard(m,i)).join('')}
   <p class="disc">💰 Cotes indicatives · Vérifiez sur bet365, Betway · 18+ · Jouez responsable</p>`;
 }
 
-// ═══════════════════════════════════════════
-//  TODAY ALL MATCHES
-// ═══════════════════════════════════════════
+// ══ TODAY ═════════════════════════════
 function renderToday(){
-  const leagues=['Tous',...new Set(S.matches.map(m=>m.league))];
+  const leagues=['Tous',...new Set(S.matches.map(m=>m.league).filter(Boolean))];
   const fm=S.filter==='Tous'?S.matches:S.matches.filter(m=>m.league===S.filter);
   return`
   <div class="sh"><div class="sh-title">Matchs d'aujourd'hui</div><div class="sh-meta">${fm.length} matchs</div></div>
   <div class="filters">${leagues.map(l=>`<button class="fc${S.filter===l?' on':''}" onclick="setFilter('${l}')">${l}</button>`).join('')}</div>
-  ${fm.length===0?'<div style="text-align:center;padding:30px;color:var(--tx3)">Aucun match</div>':''}
+  ${fm.length===0?`<div style="text-align:center;padding:30px;color:var(--tx3)"><div style="font-size:30px;margin-bottom:8px">📭</div>Aucun match trouvé<br><button class="btn-sm btn-bl" style="margin-top:12px" onclick="refresh()">↻ Réessayer</button></div>`:''}
   ${fm.map((m,i)=>mcCard(m,i)).join('')}
   <p class="disc">💰 Cotes indicatives · 18+ · Jouez responsable</p>`;
 }
 function setFilter(f){S.filter=f;render();}
 
-// ═══════════════════════════════════════════
-//  MATCH CARD
-// ═══════════════════════════════════════════
+// ══ MATCH CARD ════════════════════════
 function mcCard(m,idx){
   const n=m.niveau||'MOYEN',nc=nC(n),bc=bC(n);
   const medal=MEDALS[idx]||'•';
-  const dh=(m.home_forme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
-  const da=(m.away_forme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
+  const dh=(m.hforme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
+  const da=(m.aforme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
   const od=m.odds||{};
   return`
   <div class="mc" onclick="selectMatch(${m.id})">
@@ -496,153 +436,138 @@ function mcCard(m,idx){
         </div>
       </div>
       <div style="text-align:center;flex-shrink:0">
-        <span class="badge n${nc}">${m.score_potentiel||'?'}/100</span>
+        <span class="badge n${nc}">${m.score||'?'}/100</span>
         <div style="font-size:9px;font-weight:800;margin-top:2px" class="n${nc}">${n}</div>
       </div>
     </div>
     <div class="mc-body">
-      ${m.score_potentiel?`<div class="bar-wrap">
-        <div class="bar-lbl"><span>Potentiel pari</span><span style="font-weight:800">${m.score_potentiel}%</span></div>
-        <div class="bar"><div class="bar-f ${bc}" style="width:${m.score_potentiel}%"></div></div>
+      ${m.score?`<div class="bar-wrap">
+        <div class="bar-lbl"><span>Potentiel pari</span><span style="font-weight:800">${m.score}%</span></div>
+        <div class="bar"><div class="bar-f ${bc}" style="width:${m.score}%"></div></div>
       </div>`:''}
       <div class="tr">
-        <div class="tm"><div class="tm-name">${m.home}</div><div class="tm-pts">${m.home_pos?m.home_pos+'e':''} ${m.home_pts?'· '+m.home_pts+' pts':''}</div><div class="dots">${dh}</div></div>
+        <div class="tm"><div class="tm-name">${m.home}</div><div class="tm-pts">${m.hpos?m.hpos+'e':''} ${m.hpts?'· '+m.hpts+' pts':''}</div><div class="dots">${dh}</div></div>
         <div class="vs">VS</div>
-        <div class="tm r"><div class="tm-name">${m.away}</div><div class="tm-pts">${m.away_pos?m.away_pos+'e':''} ${m.away_pts?'· '+m.away_pts+' pts':''}</div><div class="dots r">${da}</div></div>
+        <div class="tm r"><div class="tm-name">${m.away}</div><div class="tm-pts">${m.apos?m.apos+'e':''} ${m.apts?'· '+m.apts+' pts':''}</div><div class="dots r">${da}</div></div>
       </div>
-      ${od.home!=null?`
-        <div class="odds-src">💰 Cotes live${od.source?' · '+od.source:''}</div>
+      ${od.h!=null?`
+        <div class="odds-src">💰 Cotes live${od.src?' · '+od.src:''}</div>
         <div class="odds-row">
-          <div class="ob${od.best==='home'?' best':''}"><div class="ob-lbl">1</div><div class="ob-val">${od.home}</div><div class="ob-bk">${od.home_bk||''}</div></div>
-          <div class="ob"><div class="ob-lbl">X</div><div class="ob-val">${od.draw||'—'}</div><div class="ob-bk">${od.draw_bk||''}</div></div>
-          <div class="ob${od.best==='away'?' best':''}"><div class="ob-lbl">2</div><div class="ob-val">${od.away||'—'}</div><div class="ob-bk">${od.away_bk||''}</div></div>
-          ${od.over25!=null?`<div class="ob"><div class="ob-lbl">+2.5</div><div class="ob-val">${od.over25}</div><div class="ob-bk">${od.over25_bk||''}</div></div>`:''}
+          <div class="ob${od.best==='h'?' best':''}"><div class="ob-lbl">1</div><div class="ob-val">${od.h}</div><div class="ob-bk">${od.hbk||''}</div></div>
+          <div class="ob"><div class="ob-lbl">X</div><div class="ob-val">${od.x||'—'}</div><div class="ob-bk">${od.xbk||''}</div></div>
+          <div class="ob${od.best==='a'?' best':''}"><div class="ob-lbl">2</div><div class="ob-val">${od.a||'—'}</div><div class="ob-bk">${od.abk||''}</div></div>
+          ${od.o25!=null?`<div class="ob"><div class="ob-lbl">+2.5</div><div class="ob-val">${od.o25}</div><div class="ob-bk">${od.o25bk||''}</div></div>`:''}
         </div>`:
         `<div class="odds-src" style="color:var(--or)">⚠️ Cotes non disponibles</div>`}
-      ${(m.resume_match||m.ctx)?`<div class="sum">${m.resume_match||m.ctx}${m.pari_recommande?`<div class="pchip">💡 ${m.pari_recommande}</div>`:''}</div>`:''}
+      ${(m.resume||m.ctx)?`<div class="sum">${m.resume||m.ctx}${m.pari?`<div class="pchip">💡 ${m.pari}</div>`:''}</div>`:''}
       <button class="btn-an" style="background:${NC[n]||'#6b7280'}" onclick="event.stopPropagation();selectMatch(${m.id})">Analyse complète →</button>
     </div>
   </div>`;
 }
 
-// ═══════════════════════════════════════════
-//  CALENDAR
-// ═══════════════════════════════════════════
+// ══ CALENDAR ══════════════════════════
 function renderCalendar(){
   const days7=get7Days();
   const cur=days7[S.calDay];
-  const curData=S.calData[cur.iso];
+  const curData=S.calData[cur.iso]; // peut être undefined, null (loading), ou []
   return`
-  <div class="sh"><div class="sh-title">Calendrier 7 jours</div><div class="sh-meta">${days7[0].num}/${days7[0].month} → ${days7[6].num}/${days7[6].month}</div></div>
+  <div class="sh"><div class="sh-title">Calendrier 7 jours</div></div>
   <div class="cal-nav">
     ${days7.map((d,i)=>{
-      const hasData=S.calData.hasOwnProperty(d.iso);
-      const count=hasData?S.calData[d.iso].length:'?';
+      const data=S.calData[d.iso];
+      const count=Array.isArray(data)?data.length+'m':'?m';
       return`<button class="cal-btn${S.calDay===i?' on':''}" onclick="selectCalDay(${i})">
-        <span class="day-num">${d.num}</span>
-        <div class="day-name">${d.name} ${d.month}</div>
-        <div class="mc-count">${count}m</div>
+        <span class="dn">${d.num}</span><div class="dm">${d.name} ${d.month}</div>
+        <div class="dc">${count}</div>
       </button>`;
     }).join('')}
   </div>
   <div class="cal-section">
     <div class="cal-hdr">
       <div class="cal-hdr-t">📅 ${cur.name} ${cur.num} ${cur.month}${cur.isToday?' · Aujourd\'hui':''}</div>
-      <div class="cal-hdr-c">${curData?curData.length+' matchs':'chargement...'}</div>
+      <div class="cal-hdr-c">${Array.isArray(curData)?curData.length+' matchs':'...'}</div>
     </div>
-    ${!curData?`<div class="cal-empty">
-      <div style="font-size:28px;margin-bottom:8px">📅</div>
-      Matchs du ${cur.name} ${cur.num} ${cur.month}
-      <br><button class="cal-load-btn" onclick="fetchCalDay('${cur.iso}')">Charger</button>
-    </div>`:
-    curData.length===0?`<div class="cal-empty">Aucun match trouvé pour ce jour</div>`:
-    curData.map(m=>{
-      const od=m.odds||{},n=m.niveau||'MOYEN',nc=nC(n);
-      return`<div class="cal-row" onclick="selectMatch(${m.id})">
-        <div class="cal-time">${m.time||'--:--'}</div>
-        <div class="cal-info">
-          <div class="cal-league">${m.flag||''} ${m.league||''}</div>
-          <div class="cal-teams">${m.home} vs ${m.away}</div>
-          ${m.ctx?`<div class="cal-ctx">${m.ctx}</div>`:''}
-        </div>
-        <div class="cal-right">
-          ${m.niveau?`<span class="badge n${nc}" style="font-size:9px">${n}</span>`:''}
-          ${od.home!=null?`<div class="co${od.best==='home'?' hi':''}">1:${od.home}</div>`:''}
-          ${od.draw!=null?`<div class="co">X:${od.draw}</div>`:''}
-          ${od.away!=null?`<div class="co${od.best==='away'?' hi':''}">2:${od.away}</div>`:''}
-        </div>
-      </div>`;
-    }).join('')}
+    ${curData===null?`<div class="cal-empty"><span class="ball" style="font-size:28px;margin-bottom:8px">⚽</span>Chargement...</div>`:
+      !Array.isArray(curData)?`<div class="cal-empty"><div style="font-size:28px;margin-bottom:8px">📅</div>Matchs du ${cur.name} ${cur.num} ${cur.month}<br><button class="cal-load-btn" onclick="fetchCalDay('${cur.iso}')">Charger les matchs</button></div>`:
+      curData.length===0?`<div class="cal-empty">Aucun match trouvé</div>`:
+      curData.map(m=>{
+        const od=m.odds||{},n=m.niveau||'MOYEN',nc=nC(n);
+        return`<div class="cal-row" onclick="selectMatch(${m.id})">
+          <div class="cal-time">${m.time||'--:--'}</div>
+          <div class="cal-info">
+            <div class="cal-league">${m.flag||''} ${m.league||''}</div>
+            <div class="cal-teams">${m.home} vs ${m.away}</div>
+            ${m.ctx?`<div class="cal-ctx">${m.ctx}</div>`:''}
+          </div>
+          <div class="cal-right">
+            ${m.niveau?`<span class="badge n${nc}" style="font-size:9px">${n}</span>`:''}
+            ${od.h!=null?`<div class="co${od.best==='h'?' hi':''}">1:${od.h}</div>`:''}
+            ${od.x!=null?`<div class="co">X:${od.x}</div>`:''}
+            ${od.a!=null?`<div class="co${od.best==='a'?' hi':''}">2:${od.a}</div>`:''}
+          </div>
+        </div>`;
+      }).join('')}
   </div>
   <p class="disc" style="margin-top:10px">💰 Cotes indicatives · 18+ · Jouez responsable</p>`;
 }
 
-// ═══════════════════════════════════════════
-//  DETAIL
-// ═══════════════════════════════════════════
+// ══ DETAIL ════════════════════════════
 function renderDetail(){
   const m=S.sel;if(!m)return'';
   const n=m.niveau||'MOYEN',nc=nC(n);
   const od=m.odds||{};
-  const dh=(m.home_forme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
-  const da=(m.away_forme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
-  return`
-  <div class="main">
+  const dh=(m.hforme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
+  const da=(m.aforme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
+  return`<div class="main">
     <div class="pg-hdr"><button class="btn-bk" onclick="goBack()">← Retour</button><div class="pg-t">${m.flag||''} ${m.league||''}</div></div>
     <div class="card" style="text-align:center;margin-bottom:12px">
       <div style="font-size:9px;color:var(--tx3);font-weight:700;text-transform:uppercase;margin-bottom:3px">${m.time||''}</div>
       <div style="font-size:17px;font-weight:900;margin-bottom:8px">${m.home} <span style="color:var(--bd)">vs</span> ${m.away}</div>
-      <div style="display:inline-flex;align-items:center;gap:8px"><span style="font-size:22px;font-weight:900;color:${NC[n]}">${m.score_potentiel||'?'}/100</span><span class="badge n${nc}">${n}</span></div>
+      <div style="display:inline-flex;align-items:center;gap:8px"><span style="font-size:22px;font-weight:900;color:${NC[n]}">${m.score||'?'}/100</span><span class="badge n${nc}">${n}</span></div>
     </div>
     ${m.ctx?`<div class="ctx-box">ℹ️ ${m.ctx}</div>`:''}
-    ${od.home!=null?`
+    ${od.h!=null?`
     <div class="oc">
-      <div class="oc-title" style="color:var(--bl)">💰 Comparaison cotes bookmakers</div>
-      ${od.source?`<div class="src-badge">📡 ${od.source}</div>`:''}
+      <div class="oc-title" style="color:var(--bl)">💰 Cotes bookmakers${od.src?` · <span class="src-badge">📡 ${od.src}</span>`:''}</div>
       <div class="oc-grid">
-        <div class="oc-col${od.best==='home'?' best':''}">
+        <div class="oc-col${od.best==='h'?' best':''}">
           <div class="oc-mkt">1 · ${m.home.split(' ')[0]}</div>
-          ${(od.all_home||[{bk:od.home_bk||'Bk',v:od.home}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}
+          ${(od.allh||[{bk:od.hbk||'Bk',v:od.h}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}
         </div>
-        <div class="oc-col">
-          <div class="oc-mkt">X · Nul</div>
-          ${(od.all_draw||[{bk:od.draw_bk||'Bk',v:od.draw||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}
+        <div class="oc-col"><div class="oc-mkt">X · Nul</div>
+          ${(od.allx||[{bk:od.xbk||'Bk',v:od.x||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}
         </div>
-        <div class="oc-col${od.best==='away'?' best':''}">
+        <div class="oc-col${od.best==='a'?' best':''}">
           <div class="oc-mkt">2 · ${m.away.split(' ')[0]}</div>
-          ${(od.all_away||[{bk:od.away_bk||'Bk',v:od.away||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}
+          ${(od.alla||[{bk:od.abk||'Bk',v:od.a||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}
         </div>
       </div>
-      ${od.over25!=null||od.btts!=null?`<div class="oc-grid" style="margin-top:7px;grid-template-columns:1fr 1fr">
-        ${od.over25!=null?`<div class="oc-col"><div class="oc-mkt">+2.5 buts</div><div class="oc-row"><span class="oc-bk">${od.over25_bk||'Best'}</span><span class="oc-odd top">${od.over25}</span></div></div>`:''}
-        ${od.btts!=null?`<div class="oc-col"><div class="oc-mkt">BTTS Oui</div><div class="oc-row"><span class="oc-bk">${od.btts_bk||'Best'}</span><span class="oc-odd top">${od.btts}</span></div></div>`:''}
+      ${od.o25!=null?`<div class="oc-grid" style="margin-top:7px;grid-template-columns:1fr 1fr">
+        <div class="oc-col"><div class="oc-mkt">+2.5 buts</div><div class="oc-row"><span class="oc-bk">${od.o25bk||'Best'}</span><span class="oc-odd top">${od.o25}</span></div></div>
+        ${od.btts!=null?`<div class="oc-col"><div class="oc-mkt">BTTS Oui</div><div class="oc-row"><span class="oc-bk">${od.bttsbk||'Best'}</span><span class="oc-odd top">${od.btts}</span></div></div>`:''}
       </div>`:''}
-      ${od.value_note?`<div class="oc-note">💡 ${od.value_note}</div>`:''}
+      ${od.note?`<div class="oc-note">💡 ${od.note}</div>`:''}
     </div>`:`<div class="card" style="text-align:center;color:var(--or);font-size:11px;padding:16px">⚠️ Cotes disponibles après analyse IA</div>`}
     <div class="tc-grid">
-      <div class="tcb"><div class="tcb-n">🏠 ${m.home}</div><div class="tcb-p">${m.home_pos?m.home_pos+'e':''} ${m.home_pts?'· '+m.home_pts+' pts':''}</div><div class="tcb-s">${m.home_bp5!=null?m.home_bp5+' buts/'+m.home_bc5+' enc.(5J)':''}</div><div class="dots">${dh}</div>${(m.home_top_players||[]).map(p=>`<div class="tcb-pl">⭐ ${p}</div>`).join('')}${m.home_avantage?`<div style="margin-top:6px;font-size:9px;color:var(--gn)">✅ ${m.home_avantage}</div>`:''}</div>
-      <div class="tcb"><div class="tcb-n">✈️ ${m.away}</div><div class="tcb-p">${m.away_pos?m.away_pos+'e':''} ${m.away_pts?'· '+m.away_pts+' pts':''}</div><div class="tcb-s">${m.away_bp5!=null?m.away_bp5+' buts/'+m.away_bc5+' enc.(5J)':''}</div><div class="dots">${da}</div>${(m.away_top_players||[]).map(p=>`<div class="tcb-pl">⭐ ${p}</div>`).join('')}${m.away_faiblesse?`<div style="margin-top:6px;font-size:9px;color:var(--or)">⚠️ ${m.away_faiblesse}</div>`:''}</div>
+      <div class="tcb"><div class="tcb-n">🏠 ${m.home}</div><div class="tcb-p">${m.hpos?m.hpos+'e':''} ${m.hpts?'· '+m.hpts+' pts':''}</div><div class="tcb-s">${m.hb5!=null?m.hb5+' buts/'+m.hc5+' enc.(5J)':''}</div><div class="dots">${dh}</div>${(m.hplayers||[]).map(p=>`<div class="tcb-pl">⭐ ${p}</div>`).join('')}${m.havg?`<div style="margin-top:6px;font-size:9px;color:var(--gn)">✅ ${m.havg}</div>`:''}</div>
+      <div class="tcb"><div class="tcb-n">✈️ ${m.away}</div><div class="tcb-p">${m.apos?m.apos+'e':''} ${m.apts?'· '+m.apts+' pts':''}</div><div class="tcb-s">${m.ab5!=null?m.ab5+' buts/'+m.ac5+' enc.(5J)':''}</div><div class="dots">${da}</div>${(m.aplayers||[]).map(p=>`<div class="tcb-pl">⭐ ${p}</div>`).join('')}${m.aweak?`<div style="margin-top:6px;font-size:9px;color:var(--or)">⚠️ ${m.aweak}</div>`:''}</div>
     </div>
     <div class="card">
-      <div class="fg"><label class="fl">🎯 Type de pari</label><select class="fs" id="bt-sel">${BTS.map(b=>`<option value="${b}"${(S.betType||m.pari_recommande)===b?' selected':''}>${b}</option>`).join('')}</select></div>
-      <div class="fg"><label class="fl">💰 Votre cote</label><input class="fi" type="number" step="0.01" placeholder="Ex: 1.75" value="${S.odds||''}"></div>
-      <button class="btn-sm btn-primary" style="width:100%;padding:13px;font-size:14px;border-radius:11px" onclick="doAnalyze()">🧠 Analyse IA complète</button>
+      <div class="fg"><label class="fl">🎯 Type de pari</label><select class="fs" id="bt-sel">${BTS.map(b=>`<option value="${b}"${(S.betType||m.pari)===b?' selected':''}>${b}</option>`).join('')}</select></div>
+      <div class="fg"><label class="fl">💰 Votre cote (optionnel)</label><input class="fi" type="number" step="0.01" placeholder="Ex: 1.75" value="${S.odds||''}"></div>
+      <button class="btn-sm btn-bl" style="width:100%;padding:13px;font-size:14px;border-radius:11px" onclick="doAnalyze()">🧠 Analyse IA complète</button>
     </div>
   </div>`;
 }
 
-// ═══════════════════════════════════════════
-//  RESULT
-// ═══════════════════════════════════════════
+// ══ RESULT ════════════════════════════
 function renderResult(){
   const a=S.analysis,m=S.sel;if(!a||!m)return'';
   const n=a.verdict||'MOYEN',nc=nC(n),hc=hC(n);
   const od=m.odds||{};
   const acols={danger:{bg:'#fee2e2',bd:'#dc2626',c:'#dc2626'},warning:{bg:'#fff7ed',bd:'#ea580c',c:'#ea580c'},info:{bg:'#dbeafe',bd:'#1d4ed8',c:'#1d4ed8'},success:{bg:'#dcfce7',bd:'#16a34a',c:'#16a34a'}};
   const aics={danger:'🚨',warning:'⚠️',info:'ℹ️',success:'✅'};
-  const alerts=(a.alertes||[]).map(al=>{const col=acols[al.niveau]||acols.info;return`<div class="al" style="background:${col.bg};border-color:${col.bd};color:${col.c}"><span class="al-i">${aics[al.niveau]||'ℹ️'}</span><div><div class="al-t">${al.titre||''}</div><div class="al-d" style="color:var(--tx2)">${al.detail||''}</div></div></div>`;}).join('');
-  return`
-  <div class="main">
+  return`<div class="main">
     <div class="pg-hdr"><button class="btn-bk" onclick="goBack()">← Retour</button><div class="pg-t">${m.flag||''} ${m.league||''}</div></div>
     <div class="det-hero ${hc}">
       <div class="dh-l">${m.time||''}</div>
@@ -650,175 +575,148 @@ function renderResult(){
       <div class="dh-v">${a.verdict}</div>
       <div class="dh-r">${a.resume||''}</div>
       <div class="cb-w">
-        <div class="cb-l"><span>Confiance IA</span><strong>${a.score_confiance}%</strong></div>
-        <div class="cb"><div class="cb-f" style="width:${a.score_confiance}%"></div></div>
+        <div class="cb-l"><span>Confiance IA</span><strong>${a.conf}%</strong></div>
+        <div class="cb"><div class="cb-f" style="width:${a.conf}%"></div></div>
       </div>
-      <div class="chips"><span class="chip">💰 ${a.mise_recommandee||''}</span>${S.betType?`<span class="chip">🎯 ${S.betType}</span>`:''}</div>
+      <div class="chips"><span class="chip">💰 ${a.mise||''}</span>${S.betType?`<span class="chip">🎯 ${S.betType}</span>`:''}</div>
     </div>
-    ${alerts}
-    ${od.home!=null?`
-    <div class="oc">
-      <div class="oc-title" style="color:var(--bl)">💰 Cotes · ${S.betType||''}${a.cote_court?` <span style="background:var(--gnl);color:var(--gn);padding:2px 7px;border-radius:10px;font-size:9px;font-weight:700;margin-left:5px">${a.cote_court}</span>`:''}</div>
-      ${od.source?`<div class="src-badge">📡 ${od.source}</div>`:''}
+    ${(a.alertes||[]).map(al=>{const col=acols[al.n]||acols.info;return`<div class="al" style="background:${col.bg};border-color:${col.bd};color:${col.c}"><span class="al-i">${aics[al.n]||'ℹ️'}</span><div><div class="al-t">${al.t||''}</div><div class="al-d" style="color:var(--tx2)">${al.d||''}</div></div></div>`;}).join('')}
+    ${od.h!=null?`<div class="oc"><div class="oc-title" style="color:var(--bl)">💰 Cotes${a.cote_court?` <span style="background:var(--gnl);color:var(--gn);padding:2px 7px;border-radius:10px;font-size:9px;font-weight:700;margin-left:5px">${a.cote_court}</span>`:''}</div>
       <div class="oc-grid">
-        <div class="oc-col${od.best==='home'?' best':''}"><div class="oc-mkt">1 ${m.home.split(' ')[0]}</div>${(od.all_home||[{bk:od.home_bk||'Bk',v:od.home}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}</div>
-        <div class="oc-col"><div class="oc-mkt">X Nul</div>${(od.all_draw||[{bk:od.draw_bk||'Bk',v:od.draw||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}</div>
-        <div class="oc-col${od.best==='away'?' best':''}"><div class="oc-mkt">2 ${m.away.split(' ')[0]}</div>${(od.all_away||[{bk:od.away_bk||'Bk',v:od.away||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}</div>
+        <div class="oc-col${od.best==='h'?' best':''}"><div class="oc-mkt">1 ${m.home.split(' ')[0]}</div>${(od.allh||[{bk:od.hbk||'Bk',v:od.h}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}</div>
+        <div class="oc-col"><div class="oc-mkt">X Nul</div>${(od.allx||[{bk:od.xbk||'Bk',v:od.x||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}</div>
+        <div class="oc-col${od.best==='a'?' best':''}"><div class="oc-mkt">2 ${m.away.split(' ')[0]}</div>${(od.alla||[{bk:od.abk||'Bk',v:od.a||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}</div>
       </div>
-      ${a.analyse_cote?`<div class="oc-note">📊 ${a.analyse_cote}</div>`:''}
+      ${a.cote_analyse?`<div class="oc-note">📊 ${a.cote_analyse}</div>`:''}
     </div>`:''}
-    ${a.analyse_match?ic('📋 Analyse du match','var(--bl)',a.analyse_match):''}
-    ${a.analyse_joueurs?ic('⭐ Joueurs clés','var(--pu)',a.analyse_joueurs):''}
-    ${a.h2h_context?ic('🔄 H2H historique','#0891b2',a.h2h_context):''}
-    ${a.analyse_pari?ic(`🎯 "${S.betType||'Pari'}"`,NC[n]||'#6b7280',a.analyse_pari):''}
+    ${a.analyse?ic('📋 Analyse du match','var(--bl)',a.analyse):''}
+    ${a.joueurs?ic('⭐ Joueurs clés','var(--pu)',a.joueurs):''}
+    ${a.h2h?ic('🔄 H2H historique','#0891b2',a.h2h):''}
+    ${a.pari_analyse?ic(`🎯 "${S.betType||'Pari'}"`,NC[n]||'#6b7280',a.pari_analyse):''}
     <div class="pc">
-      <div class="pros"><div class="pros-t">✅ Arguments pour</div><ul>${(a.facteurs_positifs||[]).map(f=>`<li>${f}</li>`).join('')}</ul></div>
-      <div class="cons"><div class="cons-t">⚠️ Arguments contre</div><ul>${(a.facteurs_risque||[]).map(f=>`<li>${f}</li>`).join('')}</ul></div>
+      <div class="pros"><div class="pros-t">✅ Pour</div><ul>${(a.pour||[]).map(f=>`<li>${f}</li>`).join('')}</ul></div>
+      <div class="cons"><div class="cons-t">⚠️ Contre</div><ul>${(a.contre||[]).map(f=>`<li>${f}</li>`).join('')}</ul></div>
     </div>
-    ${(a.paris_alternatifs||[]).length?`<div class="card"><div class="card-t" style="color:var(--or)">💡 Paris alternatifs</div><ul class="alt-list">${a.paris_alternatifs.map(p=>`<li>${p}</li>`).join('')}</ul></div>`:''}
-    <div class="final"><div class="final-t">🧠 Conseil final</div><div class="final-tx">${a.conseil_final||''}</div></div>
-    <button class="btn-sm btn-primary" style="width:100%;padding:13px;font-size:14px;border-radius:11px;margin-bottom:10px" onclick="goBack()">← Voir d'autres matchs</button>
+    ${(a.alts||[]).length?`<div class="card"><div class="card-t" style="color:var(--or)">💡 Paris alternatifs</div><ul class="alt-list">${a.alts.map(p=>`<li>${p}</li>`).join('')}</ul></div>`:''}
+    <div class="final"><div class="final-t">🧠 Conseil final</div><div class="final-tx">${a.conseil||''}</div></div>
+    <button class="btn-sm btn-bl" style="width:100%;padding:13px;font-size:14px;border-radius:11px;margin-bottom:10px" onclick="goBack()">← Voir d'autres matchs</button>
     <p class="disc">⚠️ Analyse IA informative · 18+ · Vérifiez les cotes sur les sites bookmakers</p>
   </div>`;
 }
 
-// ═══════════════════════════════════════════
-//  ACTIONS
-// ═══════════════════════════════════════════
+// ══ ACTIONS ═══════════════════════════
 function refresh(){fetchToday(true);}
-function selectCalDay(i){S.calDay=i;render();const d=get7Days()[i];if(!S.calData.hasOwnProperty(d.iso))fetchCalDay(d.iso);}
-function selectMatch(id){
-  const all=[...S.matches,...Object.values(S.calData).flat()];
-  const m=all.find(x=>x.id===id);if(!m)return;
-  S.sel=m;S.betType=m.pari_recommande||BTS[0];S.odds='';S.analysis=null;S.screen='detail';render();window.scrollTo(0,0);
-}
 function goBack(){S.screen='main';render();window.scrollTo(0,0);}
 function doAnalyze(){
   S.betType=document.getElementById('bt-sel')?.value||S.betType;
   S.odds=document.querySelector('.fi')?.value||S.odds;
   analyzeMatch();
 }
+function selectMatch(id){
+  const all=[...S.matches,...Object.values(S.calData).filter(Array.isArray).flat()];
+  const m=all.find(x=>x.id===id);if(!m)return;
+  S.sel=m;S.betType=m.pari||BTS[0];S.odds='';S.analysis=null;S.screen='detail';render();window.scrollTo(0,0);
+}
+function selectCalDay(i){
+  S.calDay=i;render();
+  const d=get7Days()[i];
+  if(!S.calData.hasOwnProperty(d.iso))fetchCalDay(d.iso);
+}
 
-// ═══════════════════════════════════════════
-//  FETCH TODAY
-// ═══════════════════════════════════════════
+// ══ FETCH TODAY ═══════════════════════
+// Prompt ultra-court pour éviter le rate limit
 async function fetchToday(force=false){
   const iso=todayISO();
   if(!force){
-    const c=loadCache('scout_today_'+iso);
-    if(c){S.matches=c.matches||[];S.top5=c.top5||[];S.calData[iso]=S.matches;S.lastUpdate=c.lastUpdate;applyTodayData();return;}
+    const c=loadCache('st_'+iso);
+    if(c){S.matches=c.m||[];S.top5=c.t||[];S.calData[iso]=S.matches;S.lastUpdate=c.lu;applyToday();return;}
   }
-  clearInterval(liv);
-  S.screen='loading';render();
+  clearInterval(liv);S.screen='loading';render();
   const now=new Date();
-  const dateStr=now.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-  const prompt=`Tu es expert en paris sportifs. Date aujourd'hui : ${dateStr} (${iso}).
+  const ds=now.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
 
-Utilise le web search pour trouver les VRAIS matchs de football d'aujourd'hui dans le monde entier sur : soccerbase.com/matches/results.sd?date=${iso}, flashscore.com, livescore.com, tribuna.com
+  // Prompt TRÈS COURT — clé du succès anti rate-limit
+  const prompt=`Date: ${ds} (${iso}). Trouve les matchs de football d'aujourd'hui dans le monde entier via web search (flashscore, soccerbase, livescore). Inclus tous les championnats actifs.
 
-Couvre TOUS les championnats actifs aujourd'hui : PL, Serie A, La Liga, Bundesliga, Ligue 1, Eredivisie, Pro League, Primeira Liga, Süper Lig, Scottish PL, Chance Liga, Eliteserien, Allsvenskan, RPL, Super League Ouzbékistan, Premier League Kazakhstan, Premier League Azerbaïdjan, Premier League Biélorussie, Premier League Arménie, Erovnuli Liga Géorgie, Albanie, Kosovo, Macédoine, Monténégro, Estonie, Lettonie, Lituanie, Islande, Finlande, Malte, Chypre, Féroé, Brasileirao A&B, Liga MX, MLS, J.League, K-League, A-League, Saudi Pro League, et tout autre championnat actif.
-
-Pour chaque match donne : id unique (1,2,3...), league, flag emoji, home, away, time (locale), ctx (contexte court), home_pos, away_pos, home_pts, away_pts, home_forme/away_forme (5 derniers V/N/D), home_bp5/home_bc5/away_bp5/away_bc5, home_top_players/away_top_players (2-3 noms+stats), home_avantage, away_faiblesse, score_potentiel (0-100), niveau (EXCELLENT/BON/MOYEN/RISQUÉ/ÉVITER), pari_recommande, pari_alternative, resume_match (1 phrase), alerte si besoin, odds {home,home_bk,draw,draw_bk,away,away_bk,over25,over25_bk,btts,btts_bk,best,all_home:[{bk,v}],all_draw:[{bk,v}],all_away:[{bk,v}],source,value_note}.
-
-JSON sans backticks :
-{"matches":[{...}],"top5_ids":[1,2,3,4,5]}`;
+JSON compact sans backticks, champs courts:
+{"m":[{"id":1,"league":"Premier League","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","home":"Liverpool","away":"Brentford","time":"16:00","ctx":"Dernier jour PL","hpos":1,"apos":12,"hpts":85,"apts":42,"hforme":["V","V","V","N","V"],"aforme":["D","N","V","D","D"],"hb5":12,"hc5":3,"ab5":4,"ac5":9,"hplayers":["Salah 28g","Van Dijk"],"aplayers":["Mbeumo 14g"],"havg":"Invaincu dom.","aweak":"Mauvais ext.","score":85,"niveau":"BON","pari":"+2.5 buts","alt":"Victoire A (1)","resume":"Liverpool domine Brentford sans enjeu","odds":{"h":1.28,"hbk":"bet365","x":6.50,"xbk":"Pinnacle","a":10.00,"abk":"1xBet","o25":1.62,"o25bk":"Betway","best":"o25","allh":[{"bk":"bet365","v":1.28},{"bk":"Betway","v":1.26}],"allx":[{"bk":"Pinnacle","v":6.50}],"alla":[{"bk":"1xBet","v":10.00}],"src":"bet365/Pinnacle","note":"Over 2.5 meilleure valeur - Liverpool 2.8 buts/match dom."}}],"top5":[1,2,3,4,5]}`;
 
   try{
-    const text=await callClaude([{role:'user',content:prompt}],[{type:'web_search_20250305',name:'web_search'}]);
-    const parsed=parseJSON(text);
-    S.matches=(parsed.matches||[]).sort((a,b)=>(b.score_potentiel||0)-(a.score_potentiel||0));
-    S.top5=(parsed.top5_ids||[]).map(id=>S.matches.find(m=>m.id===id)).filter(Boolean);
-    if(!S.top5.length)S.top5=S.matches.slice(0,5);
+    const text=await callClaude(prompt,true);
+    const parsed=parseJ(text);
+    // Gère les deux formats possibles
+    const arr=Array.isArray(parsed)?parsed:(parsed.m||[]);
+    const t5ids=Array.isArray(parsed)?null:(parsed.top5||null);
+    S.matches=arr.sort((a,b)=>(b.score||0)-(a.score||0));
+    S.top5=t5ids?t5ids.map(id=>S.matches.find(m=>m.id===id)).filter(Boolean):S.matches.slice(0,5);
     S.calData[iso]=S.matches;
     S.lastUpdate=now.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-    saveCache('scout_today_'+iso,{matches:S.matches,top5:S.top5,lastUpdate:S.lastUpdate});
+    saveCache('st_'+iso,{m:S.matches,t:S.top5,lu:S.lastUpdate});
   }catch(err){
+    console.error('fetchToday:',err);
     S.matches=[];S.top5=[];
-    console.error('fetchToday error:',err);
   }
-  applyTodayData();
+  applyToday();
 }
-function applyTodayData(){
-  clearInterval(liv);
-  S.screen='main';
+function applyToday(){
+  clearInterval(liv);S.screen='main';
   document.getElementById('tl-sub').textContent=`${S.matches.length} matchs · ${S.lastUpdate||''}`;
   document.getElementById('btn-rf').disabled=false;
-  render();
-  window.scrollTo(0,0);
+  render();window.scrollTo(0,0);
 }
 
-// ═══════════════════════════════════════════
-//  FETCH CALENDAR DAY
-// ═══════════════════════════════════════════
+// ══ FETCH CAL DAY ═════════════════════
 async function fetchCalDay(iso){
   if(iso===todayISO()){S.calData[iso]=S.matches;render();return;}
-  const c=loadCache('scout_cal_'+iso);
+  const c=loadCache('sc_'+iso);
   if(c){S.calData[iso]=c;render();return;}
-  S.calData[iso]=null; // loading state
-  render();
+  S.calData[iso]=null;render(); // état loading
   const d=new Date(iso+'T12:00:00');
-  const dateStr=d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-  const prompt=`Expert paris sportifs. Trouve les matchs de football prévus pour le ${dateStr} (${iso}).
-Recherche sur soccerbase.com/matches/results.sd?date=${iso}, flashscore.com, livescore.com.
-Tous championnats mondiaux.
-JSON sans backticks :
-{"matches":[{"id":1,"league":"","flag":"","home":"","away":"","time":"","ctx":"","niveau":"MOYEN","score_potentiel":50,"odds":{"home":null,"draw":null,"away":null,"best":null,"source":""}}]}`;
+  const ds=d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+  const prompt=`Matchs football du ${ds} (${iso}) dans tous les championnats mondiaux. Web search sur soccerbase, flashscore.
+JSON compact:{"m":[{"id":1,"league":"","flag":"","home":"","away":"","time":"","ctx":"","niveau":"MOYEN","score":50,"odds":{"h":null,"x":null,"a":null,"best":null}}]}`;
   try{
-    const text=await callClaude([{role:'user',content:prompt}],[{type:'web_search_20250305',name:'web_search'}]);
-    const parsed=parseJSON(text);
-    S.calData[iso]=(parsed.matches||[]).sort((a,b)=>(b.score_potentiel||0)-(a.score_potentiel||0));
-    saveCache('scout_cal_'+iso,S.calData[iso]);
+    const text=await callClaude(prompt,true);
+    const parsed=parseJ(text);
+    const arr=Array.isArray(parsed)?parsed:(parsed.m||[]);
+    S.calData[iso]=arr.sort((a,b)=>(b.score||0)-(a.score||0));
+    saveCache('sc_'+iso,S.calData[iso]);
   }catch(err){
+    console.error('fetchCalDay:',err);
     S.calData[iso]=[];
   }
   render();
 }
 
-// ═══════════════════════════════════════════
-//  ANALYZE MATCH
-// ═══════════════════════════════════════════
+// ══ ANALYZE ═══════════════════════════
 async function analyzeMatch(){
   clearInterval(liv);S.screen='analyzing';render();
   const m=S.sel,bt=S.betType,od=m.odds||{};
-  const prompt=`Expert paris sportifs.
-Match : ${m.home} (${m.home_pos||'?'}e,${m.home_pts||'?'}pts,${(m.home_forme||[]).join('-')}) vs ${m.away} (${m.away_pos||'?'}e,${m.away_pts||'?'}pts,${(m.away_forme||[]).join('-')})
-${m.flag||''} ${m.league||''} · ${m.time||''} · ${m.ctx||''}
-${m.home}: ${m.home_bp5||'?'} buts/${m.home_bc5||'?'} enc.(5J) · ${(m.home_top_players||[]).join(', ')}
-${m.away}: ${m.away_bp5||'?'} buts/${m.away_bc5||'?'} enc.(5J) · ${(m.away_top_players||[]).join(', ')}
-Cotes: 1=${od.home||'?'}(${od.home_bk||''}), X=${od.draw||'?'}, 2=${od.away||'?'}, +2.5=${od.over25||'?'}, BTTS=${od.btts||'?'}
-Pari: ${bt} · Cote utilisateur: ${S.odds||'non précisée'}
+  // Prompt court et efficace
+  const prompt=`Analyse paris sportifs.
+Match: ${m.home}(${m.hpos||'?'}e,${m.hpts||'?'}pts,${(m.hforme||[]).join('')}) vs ${m.away}(${m.apos||'?'}e,${m.apts||'?'}pts,${(m.aforme||[]).join('')})
+${m.flag||''} ${m.league||''} ${m.time||''} | ${m.ctx||''}
+${m.home}: ${m.hb5||'?'}buts/${m.hc5||'?'}enc(5J) | ${(m.hplayers||[]).join(',')}
+${m.away}: ${m.ab5||'?'}buts/${m.ac5||'?'}enc(5J) | ${(m.aplayers||[]).join(',')}
+Cotes: 1=${od.h||'?'} X=${od.x||'?'} 2=${od.a||'?'} +2.5=${od.o25||'?'}
+Pari demandé: ${bt} | Cote user: ${S.odds||'?'}
 
-JSON sans backticks :
-{"verdict":"EXCELLENT|BON|MOYEN|RISQUÉ|ÉVITER","score_confiance":0-100,"resume":"phrase","cote_court":"Bonne valeur|Surcotée|Juste","alertes":[{"niveau":"danger|warning|info|success","titre":"","detail":""}],"analyse_match":"paragraphe","analyse_joueurs":"","h2h_context":"","analyse_pari":"","analyse_cote":"","facteurs_positifs":["","",""],"facteurs_risque":["","",""],"conseil_final":"","mise_recommandee":"FAIBLE (1-2% bankroll)|NORMALE (2-3%)|AUCUNE MISE","paris_alternatifs":["",""]}`;
+JSON compact sans backticks:
+{"verdict":"EXCELLENT|BON|MOYEN|RISQUÉ|ÉVITER","conf":75,"resume":"phrase","cote_court":"Bonne valeur|Surcotée|Juste","alertes":[{"n":"warning","t":"titre","d":"detail"}],"analyse":"paragraphe match","joueurs":"impact joueurs","h2h":"historique","pari_analyse":"analyse pari","cote_analyse":"analyse cotes","pour":["",""],"contre":["",""],"conseil":"recommandation","mise":"FAIBLE (1-2%)|NORMALE (2-3%)|AUCUNE MISE","alts":["pari-raison"]}`;
   try{
-    const text=await callClaude([{role:'user',content:prompt}],[{type:'web_search_20250305',name:'web_search'}]);
-    S.analysis=parseJSON(text);
+    const text=await callClaude(prompt,false);
+    S.analysis=parseJ(text);
   }catch(err){
-    S.analysis={verdict:'ERREUR',score_confiance:0,resume:'Erreur analyse',alertes:[{niveau:'danger',titre:'Erreur',detail:err.message}],facteurs_positifs:[],facteurs_risque:[],conseil_final:'Réessaie.',mise_recommandee:'AUCUNE MISE',paris_alternatifs:[]};
+    S.analysis={verdict:'ERREUR',conf:0,resume:'Erreur analyse',alertes:[{n:'danger',t:'Erreur',d:err.message}],pour:[],contre:[],conseil:'Réessaie.',mise:'AUCUNE MISE',alts:[]};
   }
   clearInterval(liv);S.screen='result';render();window.scrollTo(0,0);
 }
 
-// ═══════════════════════════════════════════
-//  PWA MANIFEST
-// ═══════════════════════════════════════════
-const mfd={name:'Scout Paris IA',short_name:'ScoutParis',description:'Matchs du monde, cotes live, analyse IA',start_url:'./ScoutParisIA.html',display:'standalone',background_color:'#f1f5f9',theme_color:'#1d4ed8',icons:[{src:"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231d4ed8'/><text y='.9em' font-size='80' x='10'>⚽</text></svg>",sizes:'192x192',type:'image/svg+xml'}]};
-document.getElementById('mf').href=URL.createObjectURL(new Blob([JSON.stringify(mfd)],{type:'application/json'}));
-
-// ═══════════════════════════════════════════
-//  INIT
-// ═══════════════════════════════════════════
-(function init(){
-  const savedKey=localStorage.getItem('scout_api_key');
-  if(savedKey&&savedKey.startsWith('sk-ant')){
-    S.apiKey=savedKey;
-    S.screen='loading';
-    render();
-    fetchToday(false);
-  }else{
-    S.screen='setup';
-    render();
-  }
+// ══ INIT ══════════════════════════════
+(function(){
+  const k=localStorage.getItem('scout_key');
+  if(k&&k.startsWith('sk-ant')){S.apiKey=k;fetchToday(false);}
+  else{S.screen='setup';render();}
 })();
 </script>
 </body>
