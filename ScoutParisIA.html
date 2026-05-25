@@ -22,32 +22,39 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+/* TOPBAR */
 .topbar{background:#fff;border-bottom:1px solid var(--bd);padding:0 14px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .tl{display:flex;align-items:center;gap:9px}
 .tl-logo{font-size:22px}
 .tl-name{font-family:'DM Serif Display',serif;font-size:17px}
 .tl-sub{font-size:9px;color:var(--tx3);margin-top:-1px}
-.top-actions{display:flex;align-items:center;gap:8px}
-.btn-sm{padding:6px 12px;border-radius:20px;border:none;font-size:11px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif}
+.top-r{display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gn);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.btn{padding:6px 12px;border-radius:20px;border:none;font-size:11px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap}
 .btn-bl{background:var(--bl);color:#fff}
 .btn-bl:disabled{background:var(--bd);color:var(--tx3);cursor:default}
 .btn-gr{background:var(--grll);color:var(--tx2);border:1px solid var(--bd)}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--gn);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
 .main{max-width:640px;margin:0 auto;padding:14px 12px 60px}
 
 /* SETUP */
-.setup{max-width:440px;margin:60px auto;padding:0 16px}
-.setup-card{background:#fff;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh);padding:28px 24px;text-align:center}
-.setup-icon{font-size:48px;margin-bottom:12px}
-.setup-title{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:8px}
-.setup-sub{font-size:12px;color:var(--tx2);line-height:1.6;margin-bottom:20px}
-.setup-input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--bd);font-size:13px;font-family:'Outfit',sans-serif;outline:none;margin-bottom:12px;text-align:left}
-.setup-input:focus{border-color:var(--bl)}
-.setup-btn{display:block;width:100%;padding:13px;border-radius:11px;border:none;background:var(--bl);color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:'Outfit',sans-serif;margin-bottom:10px}
+.setup-wrap{max-width:440px;margin:50px auto;padding:0 16px}
+.setup-card{background:#fff;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh);padding:26px 22px;text-align:center}
+.setup-icon{font-size:46px;margin-bottom:10px}
+.setup-title{font-family:'DM Serif Display',serif;font-size:21px;margin-bottom:6px}
+.setup-sub{font-size:12px;color:var(--tx2);line-height:1.6;margin-bottom:18px}
+.fl{display:block;font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;text-align:left}
+.fi{width:100%;padding:11px 13px;border-radius:9px;border:1.5px solid var(--bd);font-size:13px;font-family:'Outfit',sans-serif;outline:none;margin-bottom:10px;background:#fff;color:var(--tx)}
+.fi:focus{border-color:var(--bl)}
+.setup-btn{display:block;width:100%;padding:13px;border-radius:11px;border:none;background:var(--bl);color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:'Outfit',sans-serif;margin-bottom:10px;transition:opacity .2s}
+.setup-btn:hover{opacity:.88}
 .setup-err{background:var(--rdl);border:1px solid var(--rd);color:var(--rd);border-radius:9px;padding:9px 12px;font-size:11px;margin-bottom:10px;display:none;text-align:left}
 .setup-note{font-size:10px;color:var(--tx3);line-height:1.6}
 .setup-note a{color:var(--bl)}
+.divider{display:flex;align-items:center;gap:10px;margin:14px 0;color:var(--tx3);font-size:11px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--bd)}
 
 /* TABS */
 .tabs{display:flex;background:#fff;border-radius:var(--r);border:1px solid var(--bd);overflow:hidden;margin-bottom:14px;box-shadow:var(--sh)}
@@ -61,7 +68,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .fc{padding:5px 11px;border-radius:20px;border:1.5px solid var(--bd);background:#fff;font-size:10px;font-weight:700;color:var(--tx2);cursor:pointer;white-space:nowrap;font-family:'Outfit',sans-serif;flex-shrink:0}
 .fc.on{background:var(--bl);color:#fff;border-color:var(--bl)}
 
-/* STATUS */
+/* STATUS BAR */
 .sbar{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:10px;border:1px solid var(--bd);padding:10px 13px;margin-bottom:12px;box-shadow:var(--sh)}
 .sbar-l{display:flex;align-items:center;gap:8px}
 .sbar-txt{font-size:11px;font-weight:600}
@@ -83,6 +90,11 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .t5-right{text-align:right;flex-shrink:0}
 .t5-pts{font-size:20px;font-weight:900;color:#92400e;line-height:1}
 .t5-niv{font-size:9px;font-weight:700;color:#78350f}
+
+/* SH */
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.sh-title{font-family:'DM Serif Display',serif;font-size:17px}
+.sh-meta{font-size:10px;color:var(--tx3)}
 
 /* MATCH CARD */
 .mc{background:#fff;border-radius:var(--r);box-shadow:var(--sh);border:1px solid var(--bd);margin-bottom:10px;overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .15s}
@@ -107,6 +119,9 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .d{width:16px;height:16px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#fff}
 .d.V{background:var(--gn)}.d.D{background:var(--rd)}.d.N{background:var(--or)}
 .vs{font-size:10px;color:var(--bd);font-weight:800;padding-top:12px}
+.live-badge{display:inline-flex;align-items:center;gap:4px;background:var(--rdl);color:var(--rd);border:1px solid var(--rd);border-radius:20px;padding:2px 8px;font-size:9px;font-weight:800;margin-bottom:6px}
+.live-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--rd);animation:pulse 1s infinite}
+.score-live{font-size:22px;font-weight:900;color:var(--rd);text-align:center;padding:6px 0 4px;letter-spacing:2px}
 .odds-src{font-size:9px;color:var(--tx3);margin-bottom:5px}
 .odds-row{display:flex;gap:5px;margin-bottom:7px;flex-wrap:wrap}
 .ob{flex:1;min-width:50px;background:var(--grll);border-radius:8px;padding:6px 4px;text-align:center;border:1.5px solid var(--bd)}
@@ -122,7 +137,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 /* CALENDAR */
 .cal-nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px;scrollbar-width:none}
 .cal-nav::-webkit-scrollbar{display:none}
-.cal-btn{padding:7px 10px;border-radius:12px;border:1.5px solid var(--bd);background:#fff;cursor:pointer;font-family:'Outfit',sans-serif;flex-shrink:0;text-align:center;min-width:58px}
+.cal-btn{padding:7px 10px;border-radius:12px;border:1.5px solid var(--bd);background:#fff;cursor:pointer;font-family:'Outfit',sans-serif;flex-shrink:0;text-align:center;min-width:56px;transition:all .15s}
 .cal-btn .dn{display:block;font-size:18px;font-weight:900;line-height:1.1}
 .cal-btn .dm{font-size:9px;color:var(--tx3)}
 .cal-btn .dc{font-size:9px;margin-top:2px;background:var(--grll);border-radius:10px;padding:1px 5px;display:inline-block}
@@ -135,23 +150,18 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .cal-row{padding:9px 14px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:8px;cursor:pointer;transition:background .15s}
 .cal-row:last-child{border-bottom:none}
 .cal-row:hover{background:var(--grll)}
-.cal-time{font-size:10px;color:var(--tx3);font-weight:700;width:36px;flex-shrink:0}
+.cal-time{font-size:10px;color:var(--tx3);font-weight:700;width:40px;flex-shrink:0}
 .cal-info{flex:1;min-width:0}
 .cal-league{font-size:9px;color:var(--tx3);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
 .cal-teams{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cal-ctx{font-size:9px;color:var(--tx3);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cal-score{font-size:12px;font-weight:900;color:var(--rd);white-space:nowrap}
 .cal-right{display:flex;align-items:center;gap:4px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
 .co{font-size:10px;font-weight:800;padding:3px 6px;border-radius:6px;background:var(--grll);border:1px solid var(--bd);cursor:pointer;white-space:nowrap}
 .co.hi{background:var(--gnl);border-color:var(--gn);color:var(--gn)}
 .cal-empty{text-align:center;padding:28px 16px;color:var(--tx3);font-size:12px}
 .cal-load-btn{margin-top:10px;padding:8px 16px;background:var(--bl);color:#fff;border:none;border-radius:9px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;font-size:12px}
 
-/* SH */
-.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.sh-title{font-family:'DM Serif Display',serif;font-size:17px}
-.sh-meta{font-size:10px;color:var(--tx3)}
-
-/* DETAIL */
+/* DETAIL & RESULT */
 .pg-hdr{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .btn-bk{padding:6px 12px;border-radius:9px;border:1.5px solid var(--bd);background:#fff;color:var(--tx);font-size:11px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif}
 .pg-t{font-size:13px;font-weight:700}
@@ -166,7 +176,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .cb-f{height:100%;background:#fff;border-radius:10px}
 .chips{display:flex;gap:7px;justify-content:center;flex-wrap:wrap}
 .chip{padding:5px 12px;background:rgba(255,255,255,.2);border-radius:20px;font-size:10px;font-weight:700}
-.ctx-box{background:var(--bll2);border-radius:10px;padding:10px 13px;margin-bottom:12px;font-size:11px;color:var(--bl);font-weight:600;line-height:1.5}
 .oc{background:#fff;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh);padding:14px;margin-bottom:10px}
 .oc-title{font-size:11px;font-weight:800;margin-bottom:10px}
 .oc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:8px}
@@ -178,7 +187,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .oc-odd{font-size:12px;font-weight:900}
 .oc-odd.top{color:var(--gn)}
 .oc-note{font-size:9px;color:var(--tx3);line-height:1.5;font-style:italic;padding-top:6px;border-top:1px solid var(--bd)}
-.src-badge{display:inline-flex;align-items:center;gap:4px;background:var(--bll2);border:1px solid var(--bll);border-radius:6px;padding:3px 8px;font-size:9px;color:var(--bl);font-weight:700;margin-bottom:8px}
 .card{background:#fff;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh);padding:14px;margin-bottom:10px}
 .card-t{font-size:11px;font-weight:800;margin-bottom:8px}
 .card-tx{font-size:12px;color:var(--tx2);line-height:1.7}
@@ -203,10 +211,15 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .al-i{font-size:16px;flex-shrink:0}
 .al-t{font-size:12px;font-weight:700;margin-bottom:1px}
 .al-d{font-size:11px}
-.fl{display:block;font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
-.fi,.fs{width:100%;padding:10px 12px;border-radius:9px;border:1.5px solid var(--bd);background:#fff;color:var(--tx);font-size:12px;font-family:'Outfit',sans-serif;outline:none;-webkit-appearance:none}
-.fi:focus,.fs:focus{border-color:var(--bl)}
+.fs,.fi2{width:100%;padding:10px 12px;border-radius:9px;border:1.5px solid var(--bd);background:#fff;color:var(--tx);font-size:12px;font-family:'Outfit',sans-serif;outline:none;-webkit-appearance:none}
+.fs:focus,.fi2:focus{border-color:var(--bl)}
 .fg{margin-bottom:11px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.stat-box{background:var(--grll);border-radius:10px;padding:10px;text-align:center}
+.stat-val{font-size:18px;font-weight:900;color:var(--tx)}
+.stat-lbl{font-size:9px;color:var(--tx3);margin-top:2px}
+
+/* LOADING */
 .ld{text-align:center;padding:60px 16px}
 .ball{font-size:52px;animation:spin 1.1s linear infinite;display:block;margin-bottom:14px}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
@@ -215,8 +228,10 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .prog-f{height:100%;background:linear-gradient(90deg,var(--bl),#7dd3fc);border-radius:10px;animation:prg 1.3s ease-in-out infinite alternate}
 @keyframes prg{from{width:8%}to{width:95%}}
 .ld-sub{font-size:10px;color:var(--tx3)}
-.disc{text-align:center;font-size:9px;color:var(--tx3);padding:6px 0;opacity:.7;line-height:1.5}
-.err-box{background:var(--rdl);border:1px solid var(--rd);color:var(--rd);border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:12px;line-height:1.5}
+.disc{text-align:center;font-size:9px;color:var(--tx3);padding:6px 0;opacity:.7;line-height:1.5;margin-top:8px}
+
+/* FLAGS */
+.flag-img{width:16px;height:12px;object-fit:cover;border-radius:2px;vertical-align:middle}
 
 /* COLORS */
 .nE{background:var(--gnl);color:var(--gn)}.nB{background:#d1fae5;color:#065f46}
@@ -225,46 +240,80 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .bM{background:linear-gradient(90deg,var(--yw),#fbbf24)}.bR{background:linear-gradient(90deg,var(--or),#fb923c)}.bV{background:linear-gradient(90deg,var(--rd),#f87171)}
 .hE{background:linear-gradient(135deg,#059669,#10b981)}.hB{background:linear-gradient(135deg,#16a34a,#22c55e)}
 .hM{background:linear-gradient(135deg,#ca8a04,#eab308)}.hR{background:linear-gradient(135deg,#ea580c,#f97316)}.hV{background:linear-gradient(135deg,#dc2626,#ef4444)}.hX{background:linear-gradient(135deg,#6b7280,#9ca3af)}
-@media(max-width:480px){.pc,.tc-grid,.oc-grid{grid-template-columns:1fr}}
+
+@media(max-width:480px){.pc,.tc-grid,.oc-grid,.stat-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+
 <div class="topbar">
   <div class="tl">
     <span class="tl-logo">⚽</span>
     <div>
       <div class="tl-name">Scout Paris IA</div>
-      <div class="tl-sub" id="tl-sub">Paris sportifs · Monde entier</div>
+      <div class="tl-sub" id="tl-sub">Données réelles · Tous championnats</div>
     </div>
   </div>
-  <div class="top-actions">
+  <div class="top-r">
     <div class="dot" id="live-dot" style="display:none"></div>
-    <button class="btn-sm btn-gr" id="btn-key" onclick="showSetup()" style="display:none">🔑 Clé</button>
-    <button class="btn-sm btn-bl" id="btn-rf" onclick="refresh()" disabled>↻</button>
+    <button class="btn btn-gr" id="btn-cfg" onclick="showSetup()" style="display:none">⚙️</button>
+    <button class="btn btn-bl" id="btn-rf" onclick="refresh()" disabled>↻</button>
   </div>
 </div>
+
 <div id="app"></div>
 
 <script>
-// ══ CONFIG ════════════════════════════
-const CACHE_TTL = 6*60*60*1000;
+// ══ CONSTANTES ════════════════════════════════
+const API_FOOT = 'https://v3.football.api-sports.io';
+const API_KEY_FOOT = 'abc06c74c7769d72405e0dde9130fb4d';
+const CACHE_TTL = 4*60*60*1000; // 4h cache
 const MEDALS = ['🥇','🥈','🥉','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟'];
 const NC = {EXCELLENT:'#16a34a',BON:'#059669',MOYEN:'#ca8a04',RISQUÉ:'#ea580c','ÉVITER':'#dc2626',ERREUR:'#6b7280'};
-const BTS = ['Victoire A (1)','Match nul (X)','Victoire B (2)','+2.5 buts','-2.5 buts','BTTS Oui','BTTS Non','1X','X2','12','Handicap -1A'];
-const ML = ['🌐 Connexion live...','📡 Récupération des matchs...','💰 Cotes bookmakers...','🧠 Classement IA...'];
+const BTS = ['Victoire A (1)','Match nul (X)','Victoire B (2)','+2.5 buts','-2.5 buts','BTTS Oui','BTTS Non','1X','X2','12'];
+const ML = ['📡 Récupération des matchs...','⚽ Données API-Football...','📊 Classements en temps réel...','🧠 Classement par potentiel...'];
+const ML2 = ['🔍 Analyse approfondie...','📊 Formes & stats...','⚽ H2H historique...','🧠 Rédaction rapport IA...'];
 
-// ══ STATE ═════════════════════════════
+// Championnats prioritaires (plans gratuit = limités)
+const PRIORITY_LEAGUES = [
+  39,   // Premier League
+  140,  // La Liga
+  135,  // Serie A
+  78,   // Bundesliga
+  61,   // Ligue 1
+  88,   // Eredivisie
+  144,  // Pro League Belgique
+  94,   // Primeira Liga
+  203,  // Süper Lig
+  197,  // Scottish PL
+  283,  // Ouzbékistan Super League
+  323,  // Kazakhstan Premier
+  189,  // Azerbaïdjan Premier
+  182,  // Biélorussie Premier
+  371,  // Arménie Premier
+  375,  // Géorgie Erovnuli
+  71,   // Brasileirao A
+  262,  // Liga MX
+  253,  // MLS
+  98,   // J.League
+  292,  // K-League
+];
+
+// ══ STATE ═════════════════════════════════════
 const S = {
-  screen:'setup', tab:'top5', calDay:0,
-  apiKey:'',
+  screen:'setup',
+  tab:'top5', calDay:0,
+  claudeKey:'',
   matches:[], top5:[],
   calData:{},
   sel:null, analysis:null,
   betType:'', odds:'',
-  filter:'Tous', lastUpdate:null,
+  filter:'Tous',
+  lastUpdate:null,
+  reqUsed:0,
 };
 
-// ══ HELPERS ═══════════════════════════
+// ══ HELPERS ═══════════════════════════════════
 function nC(n){return{EXCELLENT:'E',BON:'B',MOYEN:'M',RISQUÉ:'R','ÉVITER':'V',ERREUR:'X'}[n]||'M';}
 function bC(n){return'b'+nC(n);}
 function hC(n){return'h'+nC(n);}
@@ -272,104 +321,151 @@ function ic(t,c,tx){return`<div class="card"><div class="card-t" style="color:${
 function todayISO(){const d=new Date();return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
 function get7Days(){
   const R=[],DN=['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],MN=['jan','fév','mar','avr','mai','juin','juil','août','sep','oct','nov','déc'];
-  for(let i=0;i<7;i++){const d=new Date();d.setDate(d.getDate()+i);const iso=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;R.push({iso,num:String(d.getDate()),name:DN[d.getDay()],month:MN[d.getMonth()],isToday:i===0});}
+  for(let i=0;i<7;i++){
+    const d=new Date();d.setDate(d.getDate()+i);
+    const iso=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    R.push({iso,num:String(d.getDate()),name:DN[d.getDay()],month:MN[d.getMonth()],isToday:i===0});
+  }
   return R;
 }
 function saveCache(k,v){try{localStorage.setItem(k,JSON.stringify({ts:Date.now(),v}));}catch(e){}}
 function loadCache(k){try{const c=JSON.parse(localStorage.getItem(k));if(c&&Date.now()-c.ts<CACHE_TTL)return c.v;}catch(e){}return null;}
+function fmtTime(utc){
+  if(!utc)return'--:--';
+  const d=new Date(utc);
+  return d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Paris'});
+}
+function statusLabel(s){
+  if(!s)return'';
+  const st=s.short||s;
+  if(['1H','2H','ET','P'].includes(st))return`🔴 ${s.elapsed||''}' LIVE`;
+  if(st==='HT')return'⏸ MI-TEMPS';
+  if(['FT','AET','PEN'].includes(st))return'✅ TERMINÉ';
+  if(st==='NS')return'🕐 À venir';
+  return st;
+}
 
-async function callClaude(prompt, useSearch=false){
-  const body={
-    model:'claude-sonnet-4-20250514',
-    max_tokens:800,
-    messages:[{role:'user',content:prompt}]
-  };
-  if(useSearch) body.tools=[{type:'web_search_20250305',name:'web_search',max_uses:3}];
-  const res = await fetch('https://api.anthropic.com/v1/messages',{
+// ══ API-FOOTBALL ══════════════════════════════
+async function apiFoot(endpoint){
+  const res=await fetch(`${API_FOOT}/${endpoint}`,{
+    headers:{
+      'x-apisports-key':API_KEY_FOOT,
+    }
+  });
+  if(!res.ok)throw new Error(`API-Football HTTP ${res.status}`);
+  return res.json();
+}
+
+// ══ CLAUDE API ════════════════════════════════
+async function callClaude(prompt){
+  if(!S.claudeKey)throw new Error('Pas de clé Claude');
+  const res=await fetch('https://api.anthropic.com/v1/messages',{
     method:'POST',
     headers:{
       'Content-Type':'application/json',
-      'x-api-key':S.apiKey,
+      'x-api-key':S.claudeKey,
       'anthropic-version':'2023-06-01',
       'anthropic-dangerous-direct-browser-access':'true',
     },
-    body:JSON.stringify(body)
+    body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',
+      max_tokens:800,
+      messages:[{role:'user',content:prompt}]
+    })
   });
   if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||`HTTP ${res.status}`);}
   const data=await res.json();
   return (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
 }
 function parseJ(text){
-  // Essaie d'abord un array, puis un objet
-  let s=text.indexOf('['),e=text.lastIndexOf(']');
+  let s=text.indexOf('{'),e=text.lastIndexOf('}');
   if(s>=0&&e>s){try{return JSON.parse(text.slice(s,e+1));}catch(err){}}
-  s=text.indexOf('{');e=text.lastIndexOf('}');
+  s=text.indexOf('[');e=text.lastIndexOf(']');
   if(s>=0&&e>s){try{return JSON.parse(text.slice(s,e+1));}catch(err){}}
   throw new Error('JSON invalide');
 }
 
-// ══ RENDER ════════════════════════════
+// ══ RENDER ════════════════════════════════════
 let liv=null;
 function render(){
-  const app=document.getElementById('app');
-  document.getElementById('btn-rf').disabled=['loading','analyzing'].includes(S.screen)||S.screen==='setup';
+  document.getElementById('app').innerHTML='';
+  const rf=document.getElementById('btn-rf');
+  rf.disabled=['loading','cal-loading','analyzing'].includes(S.screen)||S.screen==='setup';
   document.getElementById('live-dot').style.display=S.lastUpdate?'block':'none';
-  document.getElementById('btn-key').style.display=S.screen==='setup'?'none':'block';
+  document.getElementById('btn-cfg').style.display=['setup'].includes(S.screen)?'none':'block';
+  const h=document.getElementById('app');
   switch(S.screen){
-    case 'setup':    app.innerHTML=renderSetup();break;
-    case 'loading':  app.innerHTML=renderLoad('Chargement des matchs...');startLiv();break;
-    case 'main':     app.innerHTML=renderMain();break;
-    case 'detail':   app.innerHTML=renderDetail();break;
-    case 'analyzing':app.innerHTML=renderLoad(S.sel?`${S.sel.home} vs ${S.sel.away}`:'Analyse en cours...');startLiv();break;
-    case 'result':   app.innerHTML=renderResult();break;
+    case 'setup':    h.innerHTML=renderSetup();break;
+    case 'loading':  h.innerHTML=renderLoad(ML,'Récupération des matchs via API-Football...');startLiv(ML);break;
+    case 'analyzing':h.innerHTML=renderLoad(ML2,S.sel?`${S.sel.home} vs ${S.sel.away}`:'');startLiv(ML2);break;
+    case 'main':     h.innerHTML=renderMain();break;
+    case 'detail':   h.innerHTML=renderDetail();break;
+    case 'result':   h.innerHTML=renderResult();break;
   }
 }
-function startLiv(){
+function startLiv(msgs){
   clearInterval(liv);let i=0;
-  setTimeout(()=>{liv=setInterval(()=>{i=(i+1)%ML.length;const el=document.getElementById('ld-msg');if(el)el.textContent=ML[i];},900);},80);
+  setTimeout(()=>{liv=setInterval(()=>{i=(i+1)%msgs.length;const el=document.getElementById('ld-msg');if(el)el.textContent=msgs[i];},900);},80);
 }
 
-// ══ SETUP ═════════════════════════════
+// ══ SETUP ═════════════════════════════════════
 function renderSetup(){
-  return`<div class="setup">
+  return`<div class="setup-wrap">
     <div class="setup-card">
       <div class="setup-icon">⚽</div>
       <div class="setup-title">Scout Paris IA</div>
-      <div class="setup-sub">Tous les matchs du monde · Cotes live · Mise à jour automatique</div>
+      <div class="setup-sub">Données réelles via API-Football · Analyse IA Claude · Tous championnats</div>
       <div class="setup-err" id="setup-err"></div>
-      <label class="fl" style="text-align:left;display:block;margin-bottom:6px">🔑 Clé API Anthropic</label>
-      <input class="setup-input" id="api-in" type="password" placeholder="sk-ant-api03-...">
+      <label class="fl">🔑 Clé API Claude (Anthropic)</label>
+      <input class="fi" id="claude-key" type="password" placeholder="sk-ant-api03-...">
       <button class="setup-btn" onclick="startApp()">🚀 Démarrer</button>
-      <div class="setup-note">Clé stockée uniquement dans votre navigateur.<br>
-      Créez-en une sur <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></div>
+      <div class="setup-note">
+        ✅ API-Football déjà configurée (plan gratuit, 100 req/jour)<br>
+        Vous avez juste besoin de votre clé Claude pour les analyses.<br>
+        Obtenez-en une sur <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>
+      </div>
     </div>
   </div>`;
 }
-function showSetup(){S.screen='setup';render();setTimeout(()=>{const el=document.getElementById('api-in');if(el){el.value=S.apiKey||'';el.focus();}},50);}
+
+function showSetup(){
+  S.screen='setup';render();
+  setTimeout(()=>{const el=document.getElementById('claude-key');if(el){el.value=S.claudeKey||'';el.focus();}},50);
+}
+
 async function startApp(){
-  const key=(document.getElementById('api-in')?.value||'').trim();
+  const key=(document.getElementById('claude-key')?.value||'').trim();
   const err=document.getElementById('setup-err');
-  if(!key.startsWith('sk-ant')){err.textContent='Clé invalide. Elle doit commencer par sk-ant-...';err.style.display='block';return;}
+  if(!key.startsWith('sk-ant')){
+    err.textContent='Clé Claude invalide. Elle doit commencer par sk-ant-...';
+    err.style.display='block';return;
+  }
   err.style.display='none';
-  S.apiKey=key;
-  localStorage.setItem('scout_key',key);
-  await fetchToday();
+  S.claudeKey=key;
+  localStorage.setItem('scout_claude',key);
+  await loadToday();
 }
 
-// ══ LOADING ═══════════════════════════
-function renderLoad(sub){
-  return`<div class="ld"><span class="ball">⚽</span><div class="ld-txt" id="ld-msg">${ML[0]}</div><div class="prog"><div class="prog-f"></div></div><div class="ld-sub">${sub}</div></div>`;
+// ══ LOADING ═══════════════════════════════════
+function renderLoad(msgs,sub){
+  return`<div class="ld"><span class="ball">⚽</span><div class="ld-txt" id="ld-msg">${msgs[0]}</div><div class="prog"><div class="prog-f"></div></div><div class="ld-sub">${sub||''}</div></div>`;
 }
 
-// ══ MAIN ══════════════════════════════
+// ══ MAIN ══════════════════════════════════════
 function renderMain(){
-  const now=new Date();
   return`<div class="main">
     <div class="sbar">
-      <div class="sbar-l"><div class="dot"></div>
-        <div><div class="sbar-txt">✅ Données à jour</div><div class="sbar-date">${S.lastUpdate||''}</div></div>
+      <div class="sbar-l">
+        <div class="dot"></div>
+        <div>
+          <div class="sbar-txt">✅ API-Football live</div>
+          <div class="sbar-date">${S.lastUpdate||''} · ${S.reqUsed}/100 req utilisées</div>
+        </div>
       </div>
-      <div class="sbar-r"><div style="font-weight:800;font-size:12px;color:var(--bl)">${S.matches.length} matchs</div><div>aujourd'hui</div></div>
+      <div class="sbar-r">
+        <div style="font-weight:800;font-size:12px;color:var(--bl)">${S.matches.length} matchs</div>
+        <div>aujourd'hui</div>
+      </div>
     </div>
     <div class="tabs">
       <button class="tab${S.tab==='top5'?' on':''}" onclick="setTab('top5')">🏆 Top 5</button>
@@ -381,57 +477,59 @@ function renderMain(){
 }
 function setTab(t){S.tab=t;render();}
 
-// ══ TOP 5 ═════════════════════════════
+// ══ TOP 5 ═════════════════════════════════════
 function renderTop5(){
   const top=S.top5.length?S.top5:S.matches.slice(0,5);
   const ds=new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long'});
+  if(!top.length)return`<div style="text-align:center;padding:30px;color:var(--tx3)"><div style="font-size:30px;margin-bottom:8px">📭</div>Aucun match aujourd'hui<br><button class="btn btn-bl" style="margin-top:12px" onclick="refresh()">↻ Actualiser</button></div>`;
   return`
   <div class="t5">
-    <div class="t5-title">🏆 Top 5 meilleurs paris <span style="font-size:10px;font-weight:600;opacity:.8">${ds}</span></div>
-    ${top.map((m,i)=>{const od=m.odds||{};return`
+    <div class="t5-title">🏆 Top 5 meilleurs paris <span style="font-size:10px;opacity:.8">${ds}</span></div>
+    ${top.map((m,i)=>{ const od=m.odds||{}; return`
     <div class="t5-item" onclick="selectMatch(${m.id})">
       <span class="t5-medal">${MEDALS[i]||'•'}</span>
       <div class="t5-info">
-        <div class="t5-lg">${m.flag||''} ${m.league||''} · ${m.time||''}</div>
+        <div class="t5-lg">${m.flag?`<img src="${m.flag}" class="flag-img"> `:''}${m.league||''} · ${m.time||''}</div>
         <div class="t5-match">${m.home} vs ${m.away}</div>
-        <div class="t5-why">${m.resume||m.ctx||''}</div>
+        <div class="t5-why">${m.resume||''}</div>
         ${m.pari?`<div class="t5-odds">💡 ${m.pari}${od.h!=null?' · 1:'+od.h+' X:'+od.x+' 2:'+od.a:''}</div>`:''}
       </div>
       <div class="t5-right"><div class="t5-pts">${m.score||'?'}</div><div class="t5-niv">${m.niveau||''}</div></div>
     </div>`;}).join('')}
   </div>
-  <div class="sh"><div class="sh-title">Analyse des Top 5</div></div>
+  <div class="sh"><div class="sh-title">Analyse complète</div></div>
   ${top.map((m,i)=>mcCard(m,i)).join('')}
   <p class="disc">💰 Cotes indicatives · Vérifiez sur bet365, Betway · 18+ · Jouez responsable</p>`;
 }
 
-// ══ TODAY ═════════════════════════════
+// ══ TODAY ═════════════════════════════════════
 function renderToday(){
   const leagues=['Tous',...new Set(S.matches.map(m=>m.league).filter(Boolean))];
   const fm=S.filter==='Tous'?S.matches:S.matches.filter(m=>m.league===S.filter);
+  if(S.matches.length===0)return`<div style="text-align:center;padding:30px;color:var(--tx3)"><div style="font-size:30px;margin-bottom:8px">📭</div>Aucun match aujourd'hui<br><button class="btn btn-bl" style="margin-top:12px" onclick="refresh()">↻ Actualiser</button></div>`;
   return`
   <div class="sh"><div class="sh-title">Matchs d'aujourd'hui</div><div class="sh-meta">${fm.length} matchs</div></div>
   <div class="filters">${leagues.map(l=>`<button class="fc${S.filter===l?' on':''}" onclick="setFilter('${l}')">${l}</button>`).join('')}</div>
-  ${fm.length===0?`<div style="text-align:center;padding:30px;color:var(--tx3)"><div style="font-size:30px;margin-bottom:8px">📭</div>Aucun match trouvé<br><button class="btn-sm btn-bl" style="margin-top:12px" onclick="refresh()">↻ Réessayer</button></div>`:''}
   ${fm.map((m,i)=>mcCard(m,i)).join('')}
   <p class="disc">💰 Cotes indicatives · 18+ · Jouez responsable</p>`;
 }
 function setFilter(f){S.filter=f;render();}
 
-// ══ MATCH CARD ════════════════════════
+// ══ MATCH CARD ════════════════════════════════
 function mcCard(m,idx){
   const n=m.niveau||'MOYEN',nc=nC(n),bc=bC(n);
   const medal=MEDALS[idx]||'•';
   const dh=(m.hforme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
   const da=(m.aforme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
   const od=m.odds||{};
+  const isLive=m.status&&['1H','2H','ET','HT','P'].includes(m.status);
   return`
   <div class="mc" onclick="selectMatch(${m.id})">
     <div class="mc-top">
       <div class="mc-left">
         <span class="mc-medal">${medal}</span>
         <div class="mc-info">
-          <div class="mc-league">${m.flag||''} ${m.league||''} · ${m.time||''}</div>
+          <div class="mc-league">${m.flag?`<img src="${m.flag}" class="flag-img"> `:''}${m.league||''} · ${m.time||''}</div>
           <div class="mc-teams">${m.home} vs ${m.away}</div>
         </div>
       </div>
@@ -441,43 +539,54 @@ function mcCard(m,idx){
       </div>
     </div>
     <div class="mc-body">
-      ${m.score?`<div class="bar-wrap">
+      ${isLive?`<div class="live-badge">🔴 LIVE ${m.elapsed||''}' </div>`:''}
+      ${m.goals?`<div class="score-live">${m.goals.home ?? '-'} - ${m.goals.away ?? '-'}</div>`:''}
+      ${m.score&&!isLive?`<div class="bar-wrap">
         <div class="bar-lbl"><span>Potentiel pari</span><span style="font-weight:800">${m.score}%</span></div>
         <div class="bar"><div class="bar-f ${bc}" style="width:${m.score}%"></div></div>
       </div>`:''}
       <div class="tr">
-        <div class="tm"><div class="tm-name">${m.home}</div><div class="tm-pts">${m.hpos?m.hpos+'e':''} ${m.hpts?'· '+m.hpts+' pts':''}</div><div class="dots">${dh}</div></div>
+        <div class="tm">
+          <div class="tm-name">${m.home}</div>
+          <div class="tm-pts">${m.hpos?m.hpos+'e':''} ${m.hpts?'· '+m.hpts+' pts':''}</div>
+          <div class="dots">${dh}</div>
+        </div>
         <div class="vs">VS</div>
-        <div class="tm r"><div class="tm-name">${m.away}</div><div class="tm-pts">${m.apos?m.apos+'e':''} ${m.apts?'· '+m.apts+' pts':''}</div><div class="dots r">${da}</div></div>
+        <div class="tm r">
+          <div class="tm-name">${m.away}</div>
+          <div class="tm-pts">${m.apos?m.apos+'e':''} ${m.apts?'· '+m.apts+' pts':''}</div>
+          <div class="dots r">${da}</div>
+        </div>
       </div>
       ${od.h!=null?`
-        <div class="odds-src">💰 Cotes live${od.src?' · '+od.src:''}</div>
+        <div class="odds-src">💰 Cotes estimées${od.src?' · '+od.src:''}</div>
         <div class="odds-row">
           <div class="ob${od.best==='h'?' best':''}"><div class="ob-lbl">1</div><div class="ob-val">${od.h}</div><div class="ob-bk">${od.hbk||''}</div></div>
           <div class="ob"><div class="ob-lbl">X</div><div class="ob-val">${od.x||'—'}</div><div class="ob-bk">${od.xbk||''}</div></div>
           <div class="ob${od.best==='a'?' best':''}"><div class="ob-lbl">2</div><div class="ob-val">${od.a||'—'}</div><div class="ob-bk">${od.abk||''}</div></div>
           ${od.o25!=null?`<div class="ob"><div class="ob-lbl">+2.5</div><div class="ob-val">${od.o25}</div><div class="ob-bk">${od.o25bk||''}</div></div>`:''}
         </div>`:
-        `<div class="odds-src" style="color:var(--or)">⚠️ Cotes non disponibles</div>`}
-      ${(m.resume||m.ctx)?`<div class="sum">${m.resume||m.ctx}${m.pari?`<div class="pchip">💡 ${m.pari}</div>`:''}</div>`:''}
+        `<div class="odds-src" style="color:var(--or)">⚠️ Cotes disponibles lors de l'analyse</div>`}
+      ${m.resume?`<div class="sum">${m.resume}${m.pari?`<div class="pchip">💡 ${m.pari}</div>`:''}</div>`:''}
       <button class="btn-an" style="background:${NC[n]||'#6b7280'}" onclick="event.stopPropagation();selectMatch(${m.id})">Analyse complète →</button>
     </div>
   </div>`;
 }
 
-// ══ CALENDAR ══════════════════════════
+// ══ CALENDAR ══════════════════════════════════
 function renderCalendar(){
   const days7=get7Days();
   const cur=days7[S.calDay];
-  const curData=S.calData[cur.iso]; // peut être undefined, null (loading), ou []
+  const curData=S.calData[cur.iso];
   return`
-  <div class="sh"><div class="sh-title">Calendrier 7 jours</div></div>
+  <div class="sh"><div class="sh-title">Calendrier 7 jours</div><div class="sh-meta">API-Football live</div></div>
   <div class="cal-nav">
     ${days7.map((d,i)=>{
       const data=S.calData[d.iso];
       const count=Array.isArray(data)?data.length+'m':'?m';
       return`<button class="cal-btn${S.calDay===i?' on':''}" onclick="selectCalDay(${i})">
-        <span class="dn">${d.num}</span><div class="dm">${d.name} ${d.month}</div>
+        <span class="dn">${d.num}</span>
+        <div class="dm">${d.name} ${d.month}</div>
         <div class="dc">${count}</div>
       </button>`;
     }).join('')}
@@ -487,18 +596,23 @@ function renderCalendar(){
       <div class="cal-hdr-t">📅 ${cur.name} ${cur.num} ${cur.month}${cur.isToday?' · Aujourd\'hui':''}</div>
       <div class="cal-hdr-c">${Array.isArray(curData)?curData.length+' matchs':'...'}</div>
     </div>
-    ${curData===null?`<div class="cal-empty"><span class="ball" style="font-size:28px;margin-bottom:8px">⚽</span>Chargement...</div>`:
-      !Array.isArray(curData)?`<div class="cal-empty"><div style="font-size:28px;margin-bottom:8px">📅</div>Matchs du ${cur.name} ${cur.num} ${cur.month}<br><button class="cal-load-btn" onclick="fetchCalDay('${cur.iso}')">Charger les matchs</button></div>`:
+    ${curData===null?`<div class="cal-empty"><span style="font-size:28px;display:block;animation:spin 1.1s linear infinite;margin-bottom:8px">⚽</span>Chargement...</div>`:
+      !Array.isArray(curData)?`<div class="cal-empty">
+        <div style="font-size:28px;margin-bottom:8px">📅</div>
+        ${cur.name} ${cur.num} ${cur.month}
+        <br><button class="cal-load-btn" onclick="fetchCalDay('${cur.iso}')">Charger les matchs</button>
+      </div>`:
       curData.length===0?`<div class="cal-empty">Aucun match trouvé</div>`:
       curData.map(m=>{
+        const isLive=m.status&&['1H','2H','ET','HT','P'].includes(m.status);
         const od=m.odds||{},n=m.niveau||'MOYEN',nc=nC(n);
         return`<div class="cal-row" onclick="selectMatch(${m.id})">
-          <div class="cal-time">${m.time||'--:--'}</div>
+          <div class="cal-time">${isLive?`<span style="color:var(--rd);font-size:9px">🔴 ${m.elapsed||''}'</span>`:m.time||'--:--'}</div>
           <div class="cal-info">
-            <div class="cal-league">${m.flag||''} ${m.league||''}</div>
+            <div class="cal-league">${m.flag?`<img src="${m.flag}" class="flag-img"> `:''}${m.league||''}</div>
             <div class="cal-teams">${m.home} vs ${m.away}</div>
-            ${m.ctx?`<div class="cal-ctx">${m.ctx}</div>`:''}
           </div>
+          ${m.goals!=null?`<div class="cal-score">${m.goals.home??'-'}-${m.goals.away??'-'}</div>`:''}
           <div class="cal-right">
             ${m.niveau?`<span class="badge n${nc}" style="font-size:9px">${n}</span>`:''}
             ${od.h!=null?`<div class="co${od.best==='h'?' hi':''}">1:${od.h}</div>`:''}
@@ -508,59 +622,89 @@ function renderCalendar(){
         </div>`;
       }).join('')}
   </div>
-  <p class="disc" style="margin-top:10px">💰 Cotes indicatives · 18+ · Jouez responsable</p>`;
+  <p class="disc">💰 Cotes indicatives · 18+ · Jouez responsable</p>`;
 }
 
-// ══ DETAIL ════════════════════════════
+// ══ DETAIL ════════════════════════════════════
 function renderDetail(){
   const m=S.sel;if(!m)return'';
   const n=m.niveau||'MOYEN',nc=nC(n);
   const od=m.odds||{};
   const dh=(m.hforme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
   const da=(m.aforme||[]).map(r=>`<div class="d ${r}">${r}</div>`).join('');
+  const isLive=m.status&&['1H','2H','ET','HT','P'].includes(m.status);
   return`<div class="main">
-    <div class="pg-hdr"><button class="btn-bk" onclick="goBack()">← Retour</button><div class="pg-t">${m.flag||''} ${m.league||''}</div></div>
+    <div class="pg-hdr"><button class="btn-bk" onclick="goBack()">← Retour</button><div class="pg-t">${m.flag?`<img src="${m.flag}" class="flag-img"> `:''}${m.league||''}</div></div>
+
     <div class="card" style="text-align:center;margin-bottom:12px">
-      <div style="font-size:9px;color:var(--tx3);font-weight:700;text-transform:uppercase;margin-bottom:3px">${m.time||''}</div>
+      <div style="font-size:9px;color:var(--tx3);font-weight:700;text-transform:uppercase;margin-bottom:3px">${m.time||''} ${statusLabel(m.status_obj||m.status)}</div>
+      ${isLive?`<div style="font-size:28px;font-weight:900;color:var(--rd);margin:6px 0;letter-spacing:2px">${m.goals?.home??'-'} - ${m.goals?.away??'-'}</div>`:''}
       <div style="font-size:17px;font-weight:900;margin-bottom:8px">${m.home} <span style="color:var(--bd)">vs</span> ${m.away}</div>
-      <div style="display:inline-flex;align-items:center;gap:8px"><span style="font-size:22px;font-weight:900;color:${NC[n]}">${m.score||'?'}/100</span><span class="badge n${nc}">${n}</span></div>
+      <div style="display:inline-flex;align-items:center;gap:8px">
+        <span style="font-size:22px;font-weight:900;color:${NC[n]}">${m.score||'?'}/100</span>
+        <span class="badge n${nc}">${n}</span>
+      </div>
     </div>
-    ${m.ctx?`<div class="ctx-box">ℹ️ ${m.ctx}</div>`:''}
+
+    ${m.hpos||m.hpts?`<div class="stat-grid">
+      <div class="stat-box"><div class="stat-val">${m.hpos||'?'}e</div><div class="stat-lbl">${m.home} au classement</div></div>
+      <div class="stat-box"><div class="stat-val">${m.apos||'?'}e</div><div class="stat-lbl">${m.away} au classement</div></div>
+    </div>`:''}
+
     ${od.h!=null?`
     <div class="oc">
-      <div class="oc-title" style="color:var(--bl)">💰 Cotes bookmakers${od.src?` · <span class="src-badge">📡 ${od.src}</span>`:''}</div>
+      <div class="oc-title" style="color:var(--bl)">💰 Cotes estimées</div>
       <div class="oc-grid">
         <div class="oc-col${od.best==='h'?' best':''}">
           <div class="oc-mkt">1 · ${m.home.split(' ')[0]}</div>
-          ${(od.allh||[{bk:od.hbk||'Bk',v:od.h}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}
+          <div class="oc-row"><span class="oc-bk">Estimé</span><span class="oc-odd top">${od.h}</span></div>
         </div>
-        <div class="oc-col"><div class="oc-mkt">X · Nul</div>
-          ${(od.allx||[{bk:od.xbk||'Bk',v:od.x||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}
+        <div class="oc-col">
+          <div class="oc-mkt">X · Nul</div>
+          <div class="oc-row"><span class="oc-bk">Estimé</span><span class="oc-odd top">${od.x||'—'}</span></div>
         </div>
         <div class="oc-col${od.best==='a'?' best':''}">
           <div class="oc-mkt">2 · ${m.away.split(' ')[0]}</div>
-          ${(od.alla||[{bk:od.abk||'Bk',v:od.a||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}
+          <div class="oc-row"><span class="oc-bk">Estimé</span><span class="oc-odd top">${od.a||'—'}</span></div>
         </div>
       </div>
       ${od.o25!=null?`<div class="oc-grid" style="margin-top:7px;grid-template-columns:1fr 1fr">
-        <div class="oc-col"><div class="oc-mkt">+2.5 buts</div><div class="oc-row"><span class="oc-bk">${od.o25bk||'Best'}</span><span class="oc-odd top">${od.o25}</span></div></div>
-        ${od.btts!=null?`<div class="oc-col"><div class="oc-mkt">BTTS Oui</div><div class="oc-row"><span class="oc-bk">${od.bttsbk||'Best'}</span><span class="oc-odd top">${od.btts}</span></div></div>`:''}
+        <div class="oc-col"><div class="oc-mkt">+2.5 buts</div><div class="oc-row"><span class="oc-bk">Estimé</span><span class="oc-odd top">${od.o25}</span></div></div>
+        ${od.btts?`<div class="oc-col"><div class="oc-mkt">BTTS Oui</div><div class="oc-row"><span class="oc-bk">Estimé</span><span class="oc-odd top">${od.btts}</span></div></div>`:''}
       </div>`:''}
-      ${od.note?`<div class="oc-note">💡 ${od.note}</div>`:''}
-    </div>`:`<div class="card" style="text-align:center;color:var(--or);font-size:11px;padding:16px">⚠️ Cotes disponibles après analyse IA</div>`}
+    </div>`:
+    `<div class="card" style="text-align:center;color:var(--or);font-size:11px;padding:16px">💰 Cotes disponibles après analyse IA</div>`}
+
     <div class="tc-grid">
-      <div class="tcb"><div class="tcb-n">🏠 ${m.home}</div><div class="tcb-p">${m.hpos?m.hpos+'e':''} ${m.hpts?'· '+m.hpts+' pts':''}</div><div class="tcb-s">${m.hb5!=null?m.hb5+' buts/'+m.hc5+' enc.(5J)':''}</div><div class="dots">${dh}</div>${(m.hplayers||[]).map(p=>`<div class="tcb-pl">⭐ ${p}</div>`).join('')}${m.havg?`<div style="margin-top:6px;font-size:9px;color:var(--gn)">✅ ${m.havg}</div>`:''}</div>
-      <div class="tcb"><div class="tcb-n">✈️ ${m.away}</div><div class="tcb-p">${m.apos?m.apos+'e':''} ${m.apts?'· '+m.apts+' pts':''}</div><div class="tcb-s">${m.ab5!=null?m.ab5+' buts/'+m.ac5+' enc.(5J)':''}</div><div class="dots">${da}</div>${(m.aplayers||[]).map(p=>`<div class="tcb-pl">⭐ ${p}</div>`).join('')}${m.aweak?`<div style="margin-top:6px;font-size:9px;color:var(--or)">⚠️ ${m.aweak}</div>`:''}</div>
+      <div class="tcb">
+        <div class="tcb-n">🏠 ${m.home}</div>
+        <div class="tcb-p">${m.hpos?m.hpos+'e · '+m.hpts+' pts':''}</div>
+        <div class="tcb-s">${m.hb5!=null?m.hb5+' buts/'+m.hc5+' enc.(5J)':''}</div>
+        <div class="dots" style="margin-bottom:6px">${dh}</div>
+        ${(m.hplayers||[]).map(p=>`<div class="tcb-pl">⭐ ${p}</div>`).join('')}
+      </div>
+      <div class="tcb">
+        <div class="tcb-n">✈️ ${m.away}</div>
+        <div class="tcb-p">${m.apos?m.apos+'e · '+m.apts+' pts':''}</div>
+        <div class="tcb-s">${m.ab5!=null?m.ab5+' buts/'+m.ac5+' enc.(5J)':''}</div>
+        <div class="dots" style="margin-bottom:6px">${da}</div>
+        ${(m.aplayers||[]).map(p=>`<div class="tcb-pl">⭐ ${p}</div>`).join('')}
+      </div>
     </div>
+
     <div class="card">
-      <div class="fg"><label class="fl">🎯 Type de pari</label><select class="fs" id="bt-sel">${BTS.map(b=>`<option value="${b}"${(S.betType||m.pari)===b?' selected':''}>${b}</option>`).join('')}</select></div>
-      <div class="fg"><label class="fl">💰 Votre cote (optionnel)</label><input class="fi" type="number" step="0.01" placeholder="Ex: 1.75" value="${S.odds||''}"></div>
-      <button class="btn-sm btn-bl" style="width:100%;padding:13px;font-size:14px;border-radius:11px" onclick="doAnalyze()">🧠 Analyse IA complète</button>
+      <div class="fg"><label class="fl">🎯 Type de pari</label>
+        <select class="fs" id="bt-sel">${BTS.map(b=>`<option value="${b}"${(S.betType||m.pari)===b?' selected':''}>${b}</option>`).join('')}</select>
+      </div>
+      <div class="fg"><label class="fl">💰 Votre cote (optionnel)</label>
+        <input class="fi2" type="number" step="0.01" placeholder="Ex: 1.75" value="${S.odds||''}">
+      </div>
+      <button class="btn btn-bl" style="width:100%;padding:13px;font-size:14px;border-radius:11px" onclick="doAnalyze()">🧠 Analyse IA complète</button>
     </div>
   </div>`;
 }
 
-// ══ RESULT ════════════════════════════
+// ══ RESULT ════════════════════════════════════
 function renderResult(){
   const a=S.analysis,m=S.sel;if(!a||!m)return'';
   const n=a.verdict||'MOYEN',nc=nC(n),hc=hC(n);
@@ -568,48 +712,44 @@ function renderResult(){
   const acols={danger:{bg:'#fee2e2',bd:'#dc2626',c:'#dc2626'},warning:{bg:'#fff7ed',bd:'#ea580c',c:'#ea580c'},info:{bg:'#dbeafe',bd:'#1d4ed8',c:'#1d4ed8'},success:{bg:'#dcfce7',bd:'#16a34a',c:'#16a34a'}};
   const aics={danger:'🚨',warning:'⚠️',info:'ℹ️',success:'✅'};
   return`<div class="main">
-    <div class="pg-hdr"><button class="btn-bk" onclick="goBack()">← Retour</button><div class="pg-t">${m.flag||''} ${m.league||''}</div></div>
+    <div class="pg-hdr"><button class="btn-bk" onclick="goBack()">← Retour</button><div class="pg-t">${m.flag?`<img src="${m.flag}" class="flag-img"> `:''}${m.league||''}</div></div>
     <div class="det-hero ${hc}">
       <div class="dh-l">${m.time||''}</div>
       <div class="dh-m">${m.home} vs ${m.away}</div>
       <div class="dh-v">${a.verdict}</div>
       <div class="dh-r">${a.resume||''}</div>
       <div class="cb-w">
-        <div class="cb-l"><span>Confiance IA</span><strong>${a.conf}%</strong></div>
-        <div class="cb"><div class="cb-f" style="width:${a.conf}%"></div></div>
+        <div class="cb-l"><span>Confiance IA</span><strong>${a.conf||0}%</strong></div>
+        <div class="cb"><div class="cb-f" style="width:${a.conf||0}%"></div></div>
       </div>
-      <div class="chips"><span class="chip">💰 ${a.mise||''}</span>${S.betType?`<span class="chip">🎯 ${S.betType}</span>`:''}</div>
+      <div class="chips">
+        <span class="chip">💰 ${a.mise||''}</span>
+        ${S.betType?`<span class="chip">🎯 ${S.betType}</span>`:''}
+      </div>
     </div>
     ${(a.alertes||[]).map(al=>{const col=acols[al.n]||acols.info;return`<div class="al" style="background:${col.bg};border-color:${col.bd};color:${col.c}"><span class="al-i">${aics[al.n]||'ℹ️'}</span><div><div class="al-t">${al.t||''}</div><div class="al-d" style="color:var(--tx2)">${al.d||''}</div></div></div>`;}).join('')}
-    ${od.h!=null?`<div class="oc"><div class="oc-title" style="color:var(--bl)">💰 Cotes${a.cote_court?` <span style="background:var(--gnl);color:var(--gn);padding:2px 7px;border-radius:10px;font-size:9px;font-weight:700;margin-left:5px">${a.cote_court}</span>`:''}</div>
-      <div class="oc-grid">
-        <div class="oc-col${od.best==='h'?' best':''}"><div class="oc-mkt">1 ${m.home.split(' ')[0]}</div>${(od.allh||[{bk:od.hbk||'Bk',v:od.h}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}</div>
-        <div class="oc-col"><div class="oc-mkt">X Nul</div>${(od.allx||[{bk:od.xbk||'Bk',v:od.x||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}</div>
-        <div class="oc-col${od.best==='a'?' best':''}"><div class="oc-mkt">2 ${m.away.split(' ')[0]}</div>${(od.alla||[{bk:od.abk||'Bk',v:od.a||'—'}]).map((b,i)=>`<div class="oc-row"><span class="oc-bk">${b.bk}</span><span class="oc-odd${i===0?' top':''}">${b.v}</span></div>`).join('')}</div>
-      </div>
-      ${a.cote_analyse?`<div class="oc-note">📊 ${a.cote_analyse}</div>`:''}
-    </div>`:''}
     ${a.analyse?ic('📋 Analyse du match','var(--bl)',a.analyse):''}
     ${a.joueurs?ic('⭐ Joueurs clés','var(--pu)',a.joueurs):''}
     ${a.h2h?ic('🔄 H2H historique','#0891b2',a.h2h):''}
     ${a.pari_analyse?ic(`🎯 "${S.betType||'Pari'}"`,NC[n]||'#6b7280',a.pari_analyse):''}
+    ${a.cote_analyse?ic('💰 Analyse des cotes','var(--gn)',a.cote_analyse):''}
     <div class="pc">
-      <div class="pros"><div class="pros-t">✅ Pour</div><ul>${(a.pour||[]).map(f=>`<li>${f}</li>`).join('')}</ul></div>
-      <div class="cons"><div class="cons-t">⚠️ Contre</div><ul>${(a.contre||[]).map(f=>`<li>${f}</li>`).join('')}</ul></div>
+      <div class="pros"><div class="pros-t">✅ Arguments pour</div><ul>${(a.pour||[]).map(f=>`<li>${f}</li>`).join('')}</ul></div>
+      <div class="cons"><div class="cons-t">⚠️ Arguments contre</div><ul>${(a.contre||[]).map(f=>`<li>${f}</li>`).join('')}</ul></div>
     </div>
     ${(a.alts||[]).length?`<div class="card"><div class="card-t" style="color:var(--or)">💡 Paris alternatifs</div><ul class="alt-list">${a.alts.map(p=>`<li>${p}</li>`).join('')}</ul></div>`:''}
     <div class="final"><div class="final-t">🧠 Conseil final</div><div class="final-tx">${a.conseil||''}</div></div>
-    <button class="btn-sm btn-bl" style="width:100%;padding:13px;font-size:14px;border-radius:11px;margin-bottom:10px" onclick="goBack()">← Voir d'autres matchs</button>
+    <button class="btn btn-bl" style="width:100%;padding:13px;font-size:14px;border-radius:11px;margin-bottom:10px" onclick="goBack()">← Voir d'autres matchs</button>
     <p class="disc">⚠️ Analyse IA informative · 18+ · Vérifiez les cotes sur les sites bookmakers</p>
   </div>`;
 }
 
-// ══ ACTIONS ═══════════════════════════
-function refresh(){fetchToday(true);}
+// ══ ACTIONS ═══════════════════════════════════
+function refresh(){loadToday(true);}
 function goBack(){S.screen='main';render();window.scrollTo(0,0);}
 function doAnalyze(){
   S.betType=document.getElementById('bt-sel')?.value||S.betType;
-  S.odds=document.querySelector('.fi')?.value||S.odds;
+  S.odds=document.querySelector('.fi2')?.value||S.odds;
   analyzeMatch();
 }
 function selectMatch(id){
@@ -623,88 +763,147 @@ function selectCalDay(i){
   if(!S.calData.hasOwnProperty(d.iso))fetchCalDay(d.iso);
 }
 
-// ══ FETCH TODAY ═══════════════════════
-// Prompt ultra-court pour éviter le rate limit
-async function fetchToday(force=false){
+// ══ ENRICHISSEMENT IA D'UN MATCH ══════════════
+async function enrichMatch(m){
+  // Appelle Claude pour enrichir un match avec score potentiel, formes, joueurs, cotes estimées
+  const prompt=`Expert paris sportifs. Enrichis ce match en JSON compact (pas de backticks):
+Match: ${m.home} vs ${m.away} | ${m.league} | ${m.time}
+{"score":85,"niveau":"BON","pari":"Victoire A (1)","resume":"phrase courte","hforme":["V","V","V","N","V"],"aforme":["D","N","V","D","D"],"hpos":1,"apos":12,"hpts":85,"apts":42,"hb5":12,"hc5":3,"ab5":4,"ac5":9,"hplayers":["Joueur1 (15 buts)","Joueur2"],"aplayers":["Joueur3 (8 buts)"],"odds":{"h":1.65,"x":3.50,"a":5.00,"o25":1.75,"best":"h"}}`;
+  try{
+    const text=await callClaude(prompt);
+    return parseJ(text);
+  }catch(e){return {};}
+}
+
+// ══ LOAD TODAY (API-Football) ════════════════
+async function loadToday(force=false){
   const iso=todayISO();
   if(!force){
-    const c=loadCache('st_'+iso);
-    if(c){S.matches=c.m||[];S.top5=c.t||[];S.calData[iso]=S.matches;S.lastUpdate=c.lu;applyToday();return;}
+    const c=loadCache('af_today_'+iso);
+    if(c){S.matches=c.m||[];S.top5=c.t5||[];S.calData[iso]=S.matches;S.lastUpdate=c.lu;S.reqUsed=c.req||0;applyData();return;}
   }
   clearInterval(liv);S.screen='loading';render();
-  const now=new Date();
-  const ds=now.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
-
-  // Prompt TRÈS COURT — clé du succès anti rate-limit
-  const prompt=`Date: ${ds} (${iso}). Trouve les matchs de football d'aujourd'hui dans le monde entier via web search (flashscore, soccerbase, livescore). Inclus tous les championnats actifs.
-
-JSON compact sans backticks, champs courts:
-{"m":[{"id":1,"league":"Premier League","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","home":"Liverpool","away":"Brentford","time":"16:00","ctx":"Dernier jour PL","hpos":1,"apos":12,"hpts":85,"apts":42,"hforme":["V","V","V","N","V"],"aforme":["D","N","V","D","D"],"hb5":12,"hc5":3,"ab5":4,"ac5":9,"hplayers":["Salah 28g","Van Dijk"],"aplayers":["Mbeumo 14g"],"havg":"Invaincu dom.","aweak":"Mauvais ext.","score":85,"niveau":"BON","pari":"+2.5 buts","alt":"Victoire A (1)","resume":"Liverpool domine Brentford sans enjeu","odds":{"h":1.28,"hbk":"bet365","x":6.50,"xbk":"Pinnacle","a":10.00,"abk":"1xBet","o25":1.62,"o25bk":"Betway","best":"o25","allh":[{"bk":"bet365","v":1.28},{"bk":"Betway","v":1.26}],"allx":[{"bk":"Pinnacle","v":6.50}],"alla":[{"bk":"1xBet","v":10.00}],"src":"bet365/Pinnacle","note":"Over 2.5 meilleure valeur - Liverpool 2.8 buts/match dom."}}],"top5":[1,2,3,4,5]}`;
 
   try{
-    const text=await callClaude(prompt,true);
-    const parsed=parseJ(text);
-    // Gère les deux formats possibles
-    const arr=Array.isArray(parsed)?parsed:(parsed.m||[]);
-    const t5ids=Array.isArray(parsed)?null:(parsed.top5||null);
-    S.matches=arr.sort((a,b)=>(b.score||0)-(a.score||0));
-    S.top5=t5ids?t5ids.map(id=>S.matches.find(m=>m.id===id)).filter(Boolean):S.matches.slice(0,5);
+    // 1. Récupère les fixtures du jour via API-Football (1 requête)
+    const data=await apiFoot(`fixtures?date=${iso}&timezone=Europe/Paris`);
+    S.reqUsed=(S.reqUsed||0)+1;
+    const fixtures=data.response||[];
+
+    // 2. Transforme les fixtures en objets match
+    const rawMatches=fixtures.map(f=>{
+      const fix=f.fixture;
+      const league=f.league;
+      const teams=f.teams;
+      const goals=f.goals;
+      const score=f.score;
+      return{
+        id:fix.id,
+        league:league.name,
+        flag:league.flag||league.logo,
+        home:teams.home.name,
+        away:teams.away.name,
+        time:fmtTime(fix.date),
+        status:fix.status?.short,
+        status_obj:fix.status,
+        elapsed:fix.status?.elapsed,
+        goals:goals,
+        leagueId:league.id,
+        // Sera enrichi par IA
+        niveau:'MOYEN',score:50,
+      };
+    });
+
+    // 3. Trie par priorité de ligue
+    rawMatches.sort((a,b)=>{
+      const pa=PRIORITY_LEAGUES.indexOf(a.leagueId);
+      const pb=PRIORITY_LEAGUES.indexOf(b.leagueId);
+      if(pa>=0&&pb<0)return-1;
+      if(pb>=0&&pa<0)return 1;
+      if(pa>=0&&pb>=0)return pa-pb;
+      return 0;
+    });
+
+    // 4. Enrichit les 15 premiers matchs avec l'IA Claude
+    const toEnrich=rawMatches.slice(0,15);
+    const enriched=await Promise.all(toEnrich.map(m=>enrichMatch(m).then(e=>({...m,...e}))));
+    const rest=rawMatches.slice(15);
+    S.matches=[...enriched,...rest].sort((a,b)=>(b.score||0)-(a.score||0));
+
+    // 5. Top 5
+    S.top5=S.matches.slice(0,5);
     S.calData[iso]=S.matches;
+
+    const now=new Date();
     S.lastUpdate=now.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-    saveCache('st_'+iso,{m:S.matches,t:S.top5,lu:S.lastUpdate});
+    saveCache('af_today_'+iso,{m:S.matches,t5:S.top5,lu:S.lastUpdate,req:S.reqUsed});
+
   }catch(err){
-    console.error('fetchToday:',err);
+    console.error('loadToday error:',err);
     S.matches=[];S.top5=[];
   }
-  applyToday();
+
+  applyData();
 }
-function applyToday(){
-  clearInterval(liv);S.screen='main';
-  document.getElementById('tl-sub').textContent=`${S.matches.length} matchs · ${S.lastUpdate||''}`;
+
+function applyData(){
+  clearInterval(liv);
+  S.screen='main';
+  document.getElementById('tl-sub').textContent=`${S.matches.length} matchs · API-Football · ${S.lastUpdate||''}`;
   document.getElementById('btn-rf').disabled=false;
   render();window.scrollTo(0,0);
 }
 
-// ══ FETCH CAL DAY ═════════════════════
+// ══ FETCH CALENDAR DAY ════════════════════════
 async function fetchCalDay(iso){
   if(iso===todayISO()){S.calData[iso]=S.matches;render();return;}
-  const c=loadCache('sc_'+iso);
+  const c=loadCache('af_cal_'+iso);
   if(c){S.calData[iso]=c;render();return;}
-  S.calData[iso]=null;render(); // état loading
-  const d=new Date(iso+'T12:00:00');
-  const ds=d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
-  const prompt=`Matchs football du ${ds} (${iso}) dans tous les championnats mondiaux. Web search sur soccerbase, flashscore.
-JSON compact:{"m":[{"id":1,"league":"","flag":"","home":"","away":"","time":"","ctx":"","niveau":"MOYEN","score":50,"odds":{"h":null,"x":null,"a":null,"best":null}}]}`;
+  S.calData[iso]=null;render();
   try{
-    const text=await callClaude(prompt,true);
-    const parsed=parseJ(text);
-    const arr=Array.isArray(parsed)?parsed:(parsed.m||[]);
-    S.calData[iso]=arr.sort((a,b)=>(b.score||0)-(a.score||0));
-    saveCache('sc_'+iso,S.calData[iso]);
+    const data=await apiFoot(`fixtures?date=${iso}&timezone=Europe/Paris`);
+    S.reqUsed=(S.reqUsed||0)+1;
+    const fixtures=data.response||[];
+    S.calData[iso]=fixtures.map(f=>({
+      id:f.fixture.id,
+      league:f.league.name,
+      flag:f.league.flag||f.league.logo,
+      home:f.teams.home.name,
+      away:f.teams.away.name,
+      time:fmtTime(f.fixture.date),
+      status:f.fixture.status?.short,
+      elapsed:f.fixture.status?.elapsed,
+      goals:f.goals,
+      niveau:'MOYEN',score:50,
+    })).sort((a,b)=>{
+      const pa=PRIORITY_LEAGUES.indexOf(a.leagueId||0);
+      const pb=PRIORITY_LEAGUES.indexOf(b.leagueId||0);
+      return pa>=0&&pb<0?-1:pb>=0&&pa<0?1:0;
+    });
+    saveCache('af_cal_'+iso,S.calData[iso]);
   }catch(err){
-    console.error('fetchCalDay:',err);
     S.calData[iso]=[];
   }
   render();
 }
 
-// ══ ANALYZE ═══════════════════════════
+// ══ ANALYZE MATCH ═════════════════════════════
 async function analyzeMatch(){
   clearInterval(liv);S.screen='analyzing';render();
   const m=S.sel,bt=S.betType,od=m.odds||{};
-  // Prompt court et efficace
-  const prompt=`Analyse paris sportifs.
-Match: ${m.home}(${m.hpos||'?'}e,${m.hpts||'?'}pts,${(m.hforme||[]).join('')}) vs ${m.away}(${m.apos||'?'}e,${m.apts||'?'}pts,${(m.aforme||[]).join('')})
-${m.flag||''} ${m.league||''} ${m.time||''} | ${m.ctx||''}
-${m.home}: ${m.hb5||'?'}buts/${m.hc5||'?'}enc(5J) | ${(m.hplayers||[]).join(',')}
-${m.away}: ${m.ab5||'?'}buts/${m.ac5||'?'}enc(5J) | ${(m.aplayers||[]).join(',')}
-Cotes: 1=${od.h||'?'} X=${od.x||'?'} 2=${od.a||'?'} +2.5=${od.o25||'?'}
-Pari demandé: ${bt} | Cote user: ${S.odds||'?'}
+  const prompt=`Expert paris sportifs.
+Match: ${m.home}(${m.hpos||'?'}e,${m.hpts||'?'}pts,forme:${(m.hforme||[]).join('')}) vs ${m.away}(${m.apos||'?'}e,${m.apts||'?'}pts,forme:${(m.aforme||[]).join('')})
+${m.league||''} | ${m.time||''}
+${m.home}: ${m.hb5||'?'}buts/${m.hc5||'?'}enc(5J) | ${(m.hplayers||[]).join(', ')}
+${m.away}: ${m.ab5||'?'}buts/${m.ac5||'?'}enc(5J) | ${(m.aplayers||[]).join(', ')}
+Cotes estimées: 1=${od.h||'?'} X=${od.x||'?'} 2=${od.a||'?'} +2.5=${od.o25||'?'}
+Pari: ${bt} | Cote user: ${S.odds||'?'}
 
 JSON compact sans backticks:
-{"verdict":"EXCELLENT|BON|MOYEN|RISQUÉ|ÉVITER","conf":75,"resume":"phrase","cote_court":"Bonne valeur|Surcotée|Juste","alertes":[{"n":"warning","t":"titre","d":"detail"}],"analyse":"paragraphe match","joueurs":"impact joueurs","h2h":"historique","pari_analyse":"analyse pari","cote_analyse":"analyse cotes","pour":["",""],"contre":["",""],"conseil":"recommandation","mise":"FAIBLE (1-2%)|NORMALE (2-3%)|AUCUNE MISE","alts":["pari-raison"]}`;
+{"verdict":"EXCELLENT|BON|MOYEN|RISQUÉ|ÉVITER","conf":75,"resume":"phrase","alertes":[{"n":"warning","t":"titre","d":"detail"}],"analyse":"paragraphe match complet","joueurs":"impact joueurs clés","h2h":"historique H2H","pari_analyse":"analyse pari choisi","cote_analyse":"analyse des cotes","pour":["arg1","arg2","arg3"],"contre":["arg1","arg2","arg3"],"conseil":"recommandation directe","mise":"FAIBLE (1-2%)|NORMALE (2-3%)|AUCUNE MISE","alts":["pari alternatif - raison"]}`;
+
   try{
-    const text=await callClaude(prompt,false);
+    const text=await callClaude(prompt);
     S.analysis=parseJ(text);
   }catch(err){
     S.analysis={verdict:'ERREUR',conf:0,resume:'Erreur analyse',alertes:[{n:'danger',t:'Erreur',d:err.message}],pour:[],contre:[],conseil:'Réessaie.',mise:'AUCUNE MISE',alts:[]};
@@ -712,11 +911,15 @@ JSON compact sans backticks:
   clearInterval(liv);S.screen='result';render();window.scrollTo(0,0);
 }
 
-// ══ INIT ══════════════════════════════
-(function(){
-  const k=localStorage.getItem('scout_key');
-  if(k&&k.startsWith('sk-ant')){S.apiKey=k;fetchToday(false);}
-  else{S.screen='setup';render();}
+// ══ INIT ══════════════════════════════════════
+(function init(){
+  const claudeKey=localStorage.getItem('scout_claude');
+  if(claudeKey&&claudeKey.startsWith('sk-ant')){
+    S.claudeKey=claudeKey;
+    loadToday(false);
+  }else{
+    S.screen='setup';render();
+  }
 })();
 </script>
 </body>
